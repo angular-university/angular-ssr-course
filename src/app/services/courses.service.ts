@@ -6,12 +6,13 @@ import {Observable} from "rxjs/Observable";
 import {Course} from "../model/course";
 import {map} from "rxjs/operators";
 import {Lesson} from "../model/lesson";
+import {AngularFirestore} from 'angularfire2/firestore';
 
 
 @Injectable()
 export class CoursesService {
 
-    constructor(private http:HttpClient) {
+    constructor(private http:HttpClient, private afs: AngularFirestore) {
 
     }
 
@@ -20,10 +21,7 @@ export class CoursesService {
     }
 
     findAllCourses(): Observable<Course[]> {
-        return this.http.get('/api/courses')
-            .pipe(
-                map(res => res['payload'])
-            );
+        return this.afs.collection<Course>('courses').valueChanges();
     }
 
     findAllCourseLessons(courseId:number): Observable<Lesson[]> {
