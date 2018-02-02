@@ -1,12 +1,12 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Course} from "../model/course";
 import {CoursesService} from "../services/courses.service";
 import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/operators';
 import {merge} from "rxjs/observable/merge";
 import {fromEvent} from 'rxjs/observable/fromEvent';
-import {LessonsDataSource} from "../services/lessons.datasource";
+import {Lesson} from '../model/lesson';
 
 
 @Component({
@@ -14,19 +14,15 @@ import {LessonsDataSource} from "../services/lessons.datasource";
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements OnInit, AfterViewInit {
+export class CourseComponent implements OnInit {
+
 
     course:Course;
 
-    dataSource: LessonsDataSource;
+    dataSource: MatTableDataSource<Lesson>;
 
     displayedColumns= ["seqNo", "description", "duration"];
 
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-
-    @ViewChild(MatSort) sort: MatSort;
-
-    @ViewChild('input') input: ElementRef;
 
     constructor(private route: ActivatedRoute,
                 private coursesService: CoursesService) {
@@ -37,43 +33,14 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
         this.course = this.route.snapshot.data["course"];
 
-        this.dataSource = new LessonsDataSource(this.coursesService);
+        this.dataSource = new MatTableDataSource([]);
 
-        this.dataSource.loadLessons(this.course.id, '', 'asc', 0, 3);
+        this.coursesService.findAllCourseLessons(this.course.id)
+            .subscribe(lessons => {
 
-    }
+                console.log(lessons);
 
-    ngAfterViewInit() {
-
-        this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
-
-        fromEvent(this.input.nativeElement,'keyup')
-            .pipe(
-                debounceTime(150),
-                distinctUntilChanged(),
-                tap(() => {
-                    this.paginator.pageIndex = 0;
-
-                    this.loadLessonsPage();
-                })
-            )
-            .subscribe();
-
-        merge(this.sort.sortChange, this.paginator.page)
-        .pipe(
-            tap(() => this.loadLessonsPage())
-        )
-        .subscribe();
-
-    }
-
-    loadLessonsPage() {
-        this.dataSource.loadLessons(
-            this.course.id,
-            this.input.nativeElement.value,
-            this.sort.direction,
-            this.paginator.pageIndex,
-            this.paginator.pageSize);
+                this.dataSource.data = lessons});
     }
 
 

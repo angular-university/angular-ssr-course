@@ -6,6 +6,7 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/rou
 import {Course} from "../model/course";
 import {Observable} from "rxjs/Observable";
 import {CoursesService} from "./courses.service";
+import {first} from 'rxjs/operators';
 
 
 
@@ -17,7 +18,10 @@ export class CourseResolver implements Resolve<Course> {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Course> {
-        return this.coursesService.findCourseById(route.params['id']);
+        return this.coursesService.findCourseById(route.params['id'])
+            .pipe(
+               first()
+            );
     }
 
 }
