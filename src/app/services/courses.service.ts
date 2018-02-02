@@ -17,15 +17,15 @@ export class CoursesService {
     }
 
     findCourseById(courseId: string): Observable<Course> {
-        return this.afs.collection('courses').doc<Course>(courseId).valueChanges();
+        return this.afs.collection('courses').doc<Course>(courseId).valueChanges().pipe(first());
     }
 
     findAllCourses(): Observable<Course[]> {
-        return this.afs.collection<Course>('courses').valueChanges();
+        return this.afs.collection<Course>('courses').valueChanges().pipe(first());
     }
 
     findAllCourseLessons(courseId:string): Observable<Lesson[]> {
-        return this.afs.collection<Lesson>('lessons', ref => ref.where('courseId', '==', courseId)).valueChanges();
+        return this.afs.collection<Lesson>('lessons', ref => ref.where('courseId', '==', courseId)).valueChanges().pipe(first());
     }
 
 }
