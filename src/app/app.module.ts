@@ -40,7 +40,7 @@ import {fireStoreConfig} from '../environments/firestore-config';
         CourseDialogComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         BrowserAnimationsModule,
         MatMenuModule,
         MatButtonModule,
