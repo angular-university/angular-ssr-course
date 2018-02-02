@@ -36,11 +36,7 @@ export class CourseComponent implements OnInit {
         this.dataSource = new MatTableDataSource([]);
 
         this.coursesService.findAllCourseLessons(this.course.id)
-            .subscribe(lessons => {
-
-                console.log(lessons);
-
-                this.dataSource.data = lessons});
+            .subscribe(lessons => this.dataSource.data = lessons);
     }
 
 
