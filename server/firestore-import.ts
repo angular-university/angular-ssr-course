@@ -17,24 +17,40 @@ firebase.initializeApp({
 });
 
 // Initialize Cloud Firestore through Firebase
-var db = firebase.firestore();
+const db = firebase.firestore();
 
 
 console.log('Populating Firestore database, make sure to have write permissions ...');
 
 
-Promise.all([
-    db.collection('courses').add(COURSES),
-    db.collection('lessons').add(LESSONS)
-])
-    .then(function (docRef:any) {
+// Get a new write batch
+const batch = db.batch();
+
+
+COURSES.forEach(course => {
+    const courseRef = db.collection('courses').doc(course.id);
+    batch.set(courseRef, course);
+});
+
+LESSONS.forEach(lesson => {
+    const lessonRef = db.collection('lessons').doc(lesson.id);
+    batch.set(lessonRef, lesson);
+});
+
+
+
+// Commit the batch
+batch.commit()
+    .then(() => {
         console.log('Document written!');
         process.exit(0);
     })
-    .catch(function (error) {
+    .catch(error => {
         console.error('Error adding document: ', error);
         process.exit(1);
     });
+
+
 
 
 
