@@ -1,6 +1,6 @@
 
 import {fireStoreConfig} from './src/environments/firestore-config';
-import {COURSES, LESSONS} from './server/db-data';
+import {COURSES, LESSONS} from './db-data';
 
 
 const firebase = require('firebase');

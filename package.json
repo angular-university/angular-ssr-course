@@ -4,13 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "./node_modules/.bin/ng serve  --proxy-config ./proxy.json",
-    "server": "./node_modules/.bin/ts-node ./server/server.ts",
+    "start": "./node_modules/.bin/ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts"
+    "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts",
+    "build-ssr":"./node_modules/.bin/ng build --app=ssr-app",
+    "serve:ssr": "./node_modules/.bin/ts-node ./server.ts"
   },
   "private": true,
   "dependencies": {
