@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "firestore-import": "./node_modules/.bin/ts-node ./server/firestore-import.ts"
+    "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts"
   },
   "private": true,
   "dependencies": {
