@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Course} from "../model/course";
 import {Lesson} from "../model/lesson";
+import {map} from 'rxjs/operators';
 
 
 
