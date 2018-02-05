@@ -6,3 +6,10 @@
 main {
     margin: 30px;
 }
+
+.spinner-container {
+    height: 360px;
+    width: 390px;
+    position: fixed;
+}
+
