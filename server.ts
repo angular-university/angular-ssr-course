@@ -50,15 +50,17 @@ app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
 
+// Server static files
+app.get('*.*', express.static(DIST_FOLDER, {
+    maxAge: '1y'
+}));
+
 // ALl regular routes use the Universal engine
 app.get('*', (req, res) => {
     res.render('index', { req });
 });
 
-// Server static files
-app.get('*.*', express.static(DIST_FOLDER, {
-    maxAge: '1y'
-}));
+
 
 
 // Start up the Node server
