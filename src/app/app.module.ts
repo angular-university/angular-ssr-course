@@ -9,7 +9,6 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 import {CourseComponent} from "./course/course.component";
@@ -36,7 +35,6 @@ import { HttpClientModule} from '@angular/common/http';
     declarations: [
         AppComponent,
         HomeComponent,
-        AboutComponent,
         CourseComponent,
         CoursesCardListComponent,
         CourseDialogComponent
