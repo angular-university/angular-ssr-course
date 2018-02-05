@@ -23,7 +23,7 @@ renderModuleFactory(AppServerModuleNgFactory, {
 })
 .then(html => {
     console.log("Pre-rendering successful, saving output.html");
-    writeFileSync('./output.hml', html);
+    writeFileSync('./prerender.html', html);
 
 })
 .catch(error => {
