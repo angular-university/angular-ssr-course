@@ -4,7 +4,7 @@
 
     <img class="course-thumbnail" [src]="course?.iconUrl">
 
-    <div class="spinner-container" *ngIf="dataSource.data.length == 0">
+    <div class="spinner-container" *ngIf="dataSource.data?.length == 0">
 
         <mat-spinner></mat-spinner>
 
