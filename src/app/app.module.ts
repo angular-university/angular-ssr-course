@@ -24,11 +24,13 @@ import {
 import {CoursesService} from "./services/courses.service";
 import {CourseResolver} from "./services/course.resolver";
 import { CourseDialogComponent } from './course-dialog/course-dialog.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
-import {AngularFirestoreModule} from 'angularfire2/firestore';
-import {AngularFireModule} from 'angularfire2';
-import {fireStoreConfig} from '../environments/firestore-config';
+import { HttpClientModule} from '@angular/common/http';
+
+
+
+
 
 @NgModule({
     declarations: [
@@ -61,8 +63,7 @@ import {fireStoreConfig} from '../environments/firestore-config';
         MatDatepickerModule,
         MatMomentDateModule,
         ReactiveFormsModule,
-        AngularFireModule.initializeApp(fireStoreConfig),
-        AngularFirestoreModule
+        HttpClientModule
     ],
     providers: [
         CoursesService,

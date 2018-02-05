@@ -1,31 +1,31 @@
 
 
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Course} from "../model/course";
-import {first, map, tap} from 'rxjs/operators';
 import {Lesson} from "../model/lesson";
-import {AngularFirestore} from 'angularfire2/firestore';
+
 
 
 @Injectable()
 export class CoursesService {
 
-    constructor(private afs: AngularFirestore) {
+    static readonly API_URL = 'https://angular-universal-course-ebcc3.firebaseio.com';
+
+    constructor(private http: HttpClient) {
 
     }
 
     findCourseById(courseId: string): Observable<Course> {
-        return this.afs.collection('courses').doc<Course>(courseId).valueChanges().pipe(first());
+        return this.http.get<Course>(`${CoursesService.API_URL}/courses/${courseId}.json`);
     }
 
     findAllCourses(): Observable<Course[]> {
-        return this.afs.collection<Course>('courses').valueChanges().pipe(first());
+        return this.http.get<Course[]>(`${CoursesService.API_URL}/courses.json`);
     }
 
     findAllCourseLessons(courseId:string): Observable<Lesson[]> {
-        return this.afs.collection<Lesson>('lessons', ref => ref.where('courseId', '==', courseId)).valueChanges().pipe(first());
+        return this.http.get<Lesson[]>(`${CoursesService.API_URL}/lessons/${courseId}.json`);
     }
-
 }
