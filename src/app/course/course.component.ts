@@ -7,6 +7,7 @@ import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/op
 import {merge} from "rxjs/observable/merge";
 import {fromEvent} from 'rxjs/observable/fromEvent';
 import {Lesson} from '../model/lesson';
+import {Meta, Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -24,10 +25,15 @@ export class CourseComponent implements OnInit {
     displayedColumns= ["seqNo", "description", "duration"];
 
 
-    constructor(private route: ActivatedRoute,
-                private coursesService: CoursesService) {
+    constructor(
+        private route: ActivatedRoute,
+        private coursesService: CoursesService,
+        private titleService: Title,
+        private metaService: Meta) {
 
     }
+
+
 
     ngOnInit() {
 
@@ -37,6 +43,17 @@ export class CourseComponent implements OnInit {
 
         this.coursesService.findAllCourseLessons(this.course.id)
             .subscribe(lessons => this.dataSource.data = lessons);
+
+
+        this.titleService.setTitle(this.course.description);
+        this.metaService.addTag({name: "description", content: this.course.longDescription});
+
+
+        this.metaService.addTag({name: "twitter:card", content: "summary"});
+        this.metaService.addTag({name: "twitter:site", content: "@AngularUniv"});
+        this.metaService.addTag({name: "twitter:title", content: this.course.description});
+        this.metaService.addTag({name: "twitter:description", content: this.course.longDescription});
+        this.metaService.addTag({name: "twitter:image", content: "https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png"});
     }
 
 
