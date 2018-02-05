@@ -29,14 +29,14 @@
     </mat-toolbar>
 
 
-    <div *shellRender>
+    <div *shellNoRender>
 
         <router-outlet></router-outlet>
 
     </div>
 
 
-    <div class="spinner-container" *shellNoRender>
+    <div class="spinner-container" *shellRender>
 
         <mat-spinner></mat-spinner>
 

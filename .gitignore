@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 dist-server
-./prerender.html
+prerender.html
