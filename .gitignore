@@ -2,6 +2,9 @@
 
 # compiled output
 /dist
+/functions/dist
+/functions/dist-server
+/functions/node_modules
 /tmp
 /out-tsc
 

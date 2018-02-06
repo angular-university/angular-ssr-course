@@ -14,7 +14,10 @@
     "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts",
     "prerender": "./node_modules/.bin/ts-node ./prerender.ts",
     "prerender:debug": "./node_modules/.bin/ts-node --inspect ./prerender.ts",
-    "start:express-server": "./node_modules/.bin/ts-node ./server.ts"
+    "start:express-server": "./node_modules/.bin/ts-node ./server.ts",
+    "build-functions":"cd functions; npm run build",
+    "deploy:local": "firebase serve --only functions,hosting",
+    "start:local": "npm-run-all build-functions deploy:local"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +37,6 @@
     "@firebase/app": "^0.1.7",
     "@nguniversal/express-engine": "^5.0.0-beta.5",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
-    "angularfire2": "^5.0.0-rc.6",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "firebase": "^4.9.0",
