@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "functions/dist/browser",
+      "outDir": "dist/browser",
       "assets": [
         "assets",
         "favicon.ico"
@@ -30,7 +30,7 @@
     },
     {
       "root": "src",
-      "outDir": "functions/dist/server",
+      "outDir": "dist/server",
       "assets": [
         "assets",
         "favicon.ico"
