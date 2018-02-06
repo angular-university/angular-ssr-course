@@ -44,10 +44,8 @@ export class CourseComponent implements OnInit {
         this.coursesService.findAllCourseLessons(this.course.id)
             .subscribe(lessons => this.dataSource.data = lessons);
 
-
         this.titleService.setTitle(this.course.description);
         this.metaService.addTag({name: "description", content: this.course.longDescription});
-
 
         this.metaService.addTag({name: "twitter:card", content: "summary"});
         this.metaService.addTag({name: "twitter:site", content: "@AngularUniv"});
@@ -56,7 +54,7 @@ export class CourseComponent implements OnInit {
         this.metaService.addTag({property:"og:url", content: "https://angular-university.io"});
         this.metaService.addTag({property:"og:title", content: this.course.description});
         this.metaService.addTag({property:"og:description", content: this.course.longDescription});
-        this.metaService.addTag({property:"og:image", content: "https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png"});
+        this.metaService.addTag({property:"og:image", content: "https://avatars3.githubusercontent.com/u/16628445?v=3&s=200"});
     }
 
 
