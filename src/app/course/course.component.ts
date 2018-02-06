@@ -53,6 +53,7 @@ export class CourseComponent implements OnInit {
         this.metaService.addTag({name: "twitter:site", content: "@AngularUniv"});
         this.metaService.addTag({name: "twitter:title", content: this.course.description});
         this.metaService.addTag({name: "twitter:description", content: this.course.longDescription});
+        this.metaService.addTag({name: "twitter:text:description", content: this.course.longDescription});
         this.metaService.addTag({name: "twitter:image", content: "https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png"});
     }
 
