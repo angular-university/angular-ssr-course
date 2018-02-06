@@ -7,7 +7,7 @@
 /functions/node_modules
 
 /firebase-debug.log
-
+/functions/lib
 
 /tmp
 /out-tsc
