@@ -5,6 +5,10 @@
 /functions/dist
 /functions/dist-server
 /functions/node_modules
+
+/firebase-debug.log
+
+
 /tmp
 /out-tsc
 
