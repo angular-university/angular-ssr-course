@@ -30,7 +30,7 @@
     },
     {
       "root": "src",
-      "outDir": "dist/server",
+      "outDir": "functions/lib",
       "assets": [
         "assets",
         "favicon.ico"
