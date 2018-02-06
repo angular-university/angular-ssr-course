@@ -7,14 +7,18 @@
     "start": "./node_modules/.bin/ng serve",
     "build:client-app:prod": "./node_modules/.bin/ng build --prod",
     "build:server-app:prod": "./node_modules/.bin/ng build --prod --app=ssr-app --output-hashing=false",
-    "build-all": "./node_modules/.bin/npm-run-all build:client-app:prod build:server-app:prod",
+    "build-all": "./node_modules/.bin/npm-run-all build:client-app:prod build:server-app:prod build:functions",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts",
     "prerender": "./node_modules/.bin/ts-node ./prerender.ts",
     "prerender:debug": "./node_modules/.bin/ts-node --inspect ./prerender.ts",
-    "start:express-server": "./node_modules/.bin/ts-node ./server.ts"
+    "start:express-server": "./node_modules/.bin/ts-node ./server.ts",
+    "build:functions":"cd functions && npm run build",
+    "move-index":"mv ./dist/index.html ./functions/lib/index-server.html",
+    "firebase:serve":"",
+    "start:local": "npm-run-all build-all move-index firebase:serve"
   },
   "private": true,
   "dependencies": {
