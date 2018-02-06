@@ -11,7 +11,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts",
     "prerender": "./node_modules/.bin/ts-node ./prerender.ts",
     "prerender:debug": "./node_modules/.bin/ts-node --inspect ./prerender.ts",
     "start:express-server": "./node_modules/.bin/ts-node ./server.ts",
