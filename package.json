@@ -14,10 +14,7 @@
     "firestore-import": "./node_modules/.bin/ts-node ./firestore-import.ts",
     "prerender": "./node_modules/.bin/ts-node ./prerender.ts",
     "prerender:debug": "./node_modules/.bin/ts-node --inspect ./prerender.ts",
-    "start:express-server": "./node_modules/.bin/ts-node ./server.ts",
-    "build-functions": "cd functions; npm run build",
-    "deploy:local": "firebase serve --only functions,hosting",
-    "start:local": "npm-run-all build-functions deploy:local"
+    "start:express-server": "./node_modules/.bin/ts-node ./server.ts"
   },
   "private": true,
   "dependencies": {

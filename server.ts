@@ -10,7 +10,7 @@ import { readFileSync } from 'fs';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main.bundle');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main.bundle');
 
 
 enableProdMode();
@@ -18,7 +18,6 @@ enableProdMode();
 const app = express();
 
 const DIST_FOLDER = join(process.cwd(), 'dist');
-const DIST_SERVER_FOLDER = join(process.cwd(), 'dist-server');
 
 const indexHtml = readFileSync(join(DIST_FOLDER, 'index.html'), 'utf-8').toString();
 
