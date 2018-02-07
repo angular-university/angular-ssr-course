@@ -26,7 +26,6 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import { HttpClientModule} from '@angular/common/http';
-import {ShellNoRender, ShellRender} from './universal/shell-render.directive';
 
 
 
@@ -39,12 +38,9 @@ import {ShellNoRender, ShellRender} from './universal/shell-render.directive';
         CourseComponent,
         CoursesCardListComponent,
         CourseDialogComponent,
-        ShellNoRender,
-        ShellRender
     ],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
-        BrowserTransferStateModule,
+        BrowserModule,
         BrowserAnimationsModule,
         MatMenuModule,
         MatButtonModule,
