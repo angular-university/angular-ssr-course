@@ -5,7 +5,7 @@ This repository contains the code of the [Angular Universal Course](https://angu
 
 This course repository is updated to Angular v5, and there is a  package-lock.json file available, for avoiding semantic versioning installation issues.
 
-![Angular Universal Course](https://angular-academy.s3.amazonaws.com/thumbnails/angular_universal.jpg)
+![Angular Universal Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-universal-small.png)
 
 
 # Installation pre-requisites
