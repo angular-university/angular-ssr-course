@@ -6,7 +6,7 @@ import * as express from 'express';
 import { readFileSync } from 'fs';
 import { enableProdMode } from '@angular/core';
 
-const {AppServerModuleNgFactory} = require('./dist-server/main.bundle');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist-server/main.bundle');
 
 enableProdMode();
 
@@ -23,9 +23,17 @@ app.route('*').get((req, res) => {
 
     renderModuleFactory(AppServerModuleNgFactory, {
         document: indexHtml,
-        url: req.url
+        url: req.url,
+        extraProviders: [
+            LAZY_MODULE_MAP
+        ]
     })
-        .then(html => res.status(200).send(html))
+        .then(html => {
+
+            res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
+
+            res.status(200).send(html);
+        })
         .catch(err => {
             console.log(err);
             res.sendStatus(500);
