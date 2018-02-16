@@ -26,7 +26,6 @@ app.route('*').get((req, res) => {
         url: req.url
     })
         .then(html => {
-            res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
             res.status(200).send(html);
         })
         .catch(err => {
