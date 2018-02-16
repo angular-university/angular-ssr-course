@@ -20,8 +20,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.courses$ = this.coursesService.findAllCourses()
             .pipe(
-                map(Object.values),
-                tap(console.log)
+                map(Object.values)
             );
     }
 
