@@ -9,18 +9,32 @@ import { enableProdMode } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
-const {AppServerModuleNgFactory} = require('./dist-server/main.bundle');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist-server/main.bundle');
 
 enableProdMode();
 
 const app = express();
 
-const indexHtml = readFileSync(__dirname + '/dist/index.html', 'utf-8').toString();
+const distFolder = __dirname + '/dist';
+
+app.engine('html', ngExpressEngine({
+    bootstrap:  AppServerModuleNgFactory,
+    providers: [provideModuleMap(LAZY_MODULE_MAP)]
+}));
+
+app.set('view engine', 'html');
+app.set('views', distFolder);
 
 
 
+app.get('*.*', express.static(distFolder, {
+    maxAge: '1y'
+}));
 
+app.get('*', (req, res) => {
+    res.render('index', {req});
 
+});
 
 
 app.listen(9000, () => {
