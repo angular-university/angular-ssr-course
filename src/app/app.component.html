@@ -29,7 +29,22 @@
     </mat-toolbar>
 
 
+    <ng-container *appShellNoRender>
+
         <router-outlet></router-outlet>
+
+    </ng-container>
+
+
+    <ng-container *appShellRender>
+
+        <mat-spinner></mat-spinner>
+
+    </ng-container>
+
+
+
+
 
 
 </mat-sidenav-container>
