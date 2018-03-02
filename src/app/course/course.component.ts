@@ -17,7 +17,6 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class CourseComponent implements OnInit {
 
-
     course:Course;
 
     dataSource: MatTableDataSource<Lesson>;
