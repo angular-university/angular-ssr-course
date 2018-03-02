@@ -27,9 +27,7 @@ export class CourseComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private coursesService: CoursesService,
-        private titleService: Title,
-        private metaService: Meta) {
+        private coursesService: CoursesService) {
 
     }
 
