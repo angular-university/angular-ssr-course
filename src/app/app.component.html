@@ -29,18 +29,18 @@
     </mat-toolbar>
 
 
-    <ng-container *appShellNoRender>
+    <ng-container>
 
         <router-outlet></router-outlet>
 
     </ng-container>
 
 
-    <ng-container *appShellRender>
+    <div class="spinner-container" *appShellRender>
 
         <mat-spinner></mat-spinner>
 
-    </ng-container>
+    </div>
 
 
 

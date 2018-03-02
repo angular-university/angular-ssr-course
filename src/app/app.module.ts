@@ -26,6 +26,8 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import { HttpClientModule} from '@angular/common/http';
+import {AppShellNoRenderDirective} from './directives/app-shell-no-render.directive';
+import {AppShellRenderDirective} from './directives/app-shell-render.directive';
 
 
 
@@ -38,6 +40,8 @@ import { HttpClientModule} from '@angular/common/http';
         CourseComponent,
         CoursesCardListComponent,
         CourseDialogComponent,
+        AppShellNoRenderDirective,
+        AppShellRenderDirective
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),

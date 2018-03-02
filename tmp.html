@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Angular PWA - Progressive Web Apps Course</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:300" rel="stylesheet">
+    <link href="styles.faa5dcd931f22d491e1f.bundle.css" rel="stylesheet">
+    <style ng-transition="serverApp">body {
+        margin: 0
+    }
+
+    main[_ngcontent-c0] {
+        margin: 30px
+    }
+
+    .spinner-container[_ngcontent-c0] {
+        height: 360px;
+        margin: 100px auto;
+        text-align: center;
+        max-width: 100px
+    }</style>
+    <style ng-transition="serverApp">.mat-drawer-container {
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+        overflow: hidden
+    }
+
+    .mat-drawer-container[fullscreen] {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute
+    }
+
+    .mat-drawer-container[fullscreen].mat-drawer-opened {
+        overflow: hidden
+    }
+
+    .mat-drawer-backdrop {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        display: block;
+        z-index: 3;
+        visibility: hidden
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+        visibility: visible
+    }
+
+    .mat-drawer-transition .mat-drawer-backdrop {
+        transition-duration: .4s;
+        transition-timing-function: cubic-bezier(.25, .8, .25, 1);
+        transition-property: background-color, visibility
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-drawer-backdrop {
+            opacity: .5
+        }
+    }
+
+    .mat-drawer-content {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: relative;
+        z-index: 1;
+        display: block;
+        height: 100%;
+        overflow: auto
+    }
+
+    .mat-drawer-transition .mat-drawer-content {
+        transition-duration: .4s;
+        transition-timing-function: cubic-bezier(.25, .8, .25, 1);
+        transition-property: transform, margin-left, margin-right
+    }
+
+    .mat-drawer {
+        position: relative;
+        z-index: 4;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+        outline: 0;
+        box-sizing: border-box;
+        overflow-y: auto;
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    .mat-drawer.mat-drawer-side {
+        z-index: 2
+    }
+
+    .mat-drawer.mat-drawer-end {
+        right: 0;
+        transform: translate3d(100%, 0, 0)
+    }
+
+    [dir=rtl] .mat-drawer {
+        transform: translate3d(100%, 0, 0)
+    }
+
+    [dir=rtl] .mat-drawer.mat-drawer-end {
+        left: 0;
+        right: auto;
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    .mat-drawer:not(.mat-drawer-side) {
+        box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12)
+    }
+
+    .mat-sidenav-fixed {
+        position: fixed
+    }</style>
+    <style ng-transition="serverApp">.mat-divider {
+        display: block;
+        margin: 0;
+        border-top-width: 1px;
+        border-top-style: solid
+    }
+
+    .mat-divider.mat-divider-vertical {
+        border-top: 0;
+        border-right-width: 1px;
+        border-right-style: solid
+    }
+
+    .mat-divider.mat-divider-inset {
+        margin-left: 80px
+    }
+
+    [dir=rtl] .mat-divider.mat-divider-inset {
+        margin-left: auto;
+        margin-right: 80px
+    }
+
+    .mat-subheader {
+        display: flex;
+        box-sizing: border-box;
+        padding: 16px;
+        align-items: center
+    }
+
+    .mat-list .mat-subheader, .mat-nav-list .mat-subheader, .mat-selection-list .mat-subheader {
+        margin: 0
+    }
+
+    .mat-list, .mat-nav-list, .mat-selection-list {
+        padding-top: 8px;
+        display: block
+    }
+
+    .mat-list .mat-subheader, .mat-nav-list .mat-subheader, .mat-selection-list .mat-subheader {
+        height: 48px;
+        line-height: 16px
+    }
+
+    .mat-list .mat-subheader:first-child, .mat-nav-list .mat-subheader:first-child, .mat-selection-list .mat-subheader:first-child {
+        margin-top: -8px
+    }
+
+    .mat-list .mat-list-item, .mat-list .mat-list-option, .mat-nav-list .mat-list-item, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-item, .mat-selection-list .mat-list-option {
+        display: block;
+        height: 48px
+    }
+
+    .mat-list .mat-list-item .mat-list-item-content, .mat-list .mat-list-option .mat-list-item-content, .mat-nav-list .mat-list-item .mat-list-item-content, .mat-nav-list .mat-list-option .mat-list-item-content, .mat-selection-list .mat-list-item .mat-list-item-content, .mat-selection-list .mat-list-option .mat-list-item-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 0 16px;
+        position: relative;
+        height: inherit
+    }
+
+    .mat-list .mat-list-item .mat-list-item-content-reverse, .mat-list .mat-list-option .mat-list-item-content-reverse, .mat-nav-list .mat-list-item .mat-list-item-content-reverse, .mat-nav-list .mat-list-option .mat-list-item-content-reverse, .mat-selection-list .mat-list-item .mat-list-item-content-reverse, .mat-selection-list .mat-list-option .mat-list-item-content-reverse {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        flex-direction: row-reverse;
+        justify-content: space-around
+    }
+
+    .mat-list .mat-list-item .mat-list-item-ripple, .mat-list .mat-list-option .mat-list-item-ripple, .mat-nav-list .mat-list-item .mat-list-item-ripple, .mat-nav-list .mat-list-option .mat-list-item-ripple, .mat-selection-list .mat-list-item .mat-list-item-ripple, .mat-selection-list .mat-list-option .mat-list-item-ripple {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        pointer-events: none
+    }
+
+    .mat-list .mat-list-item.mat-list-item-avatar, .mat-list .mat-list-option.mat-list-item-avatar, .mat-nav-list .mat-list-item.mat-list-item-avatar, .mat-nav-list .mat-list-option.mat-list-item-avatar, .mat-selection-list .mat-list-item.mat-list-item-avatar, .mat-selection-list .mat-list-option.mat-list-item-avatar {
+        height: 56px
+    }
+
+    .mat-list .mat-list-item.mat-2-line, .mat-list .mat-list-option.mat-2-line, .mat-nav-list .mat-list-item.mat-2-line, .mat-nav-list .mat-list-option.mat-2-line, .mat-selection-list .mat-list-item.mat-2-line, .mat-selection-list .mat-list-option.mat-2-line {
+        height: 72px
+    }
+
+    .mat-list .mat-list-item.mat-3-line, .mat-list .mat-list-option.mat-3-line, .mat-nav-list .mat-list-item.mat-3-line, .mat-nav-list .mat-list-option.mat-3-line, .mat-selection-list .mat-list-item.mat-3-line, .mat-selection-list .mat-list-option.mat-3-line {
+        height: 88px
+    }
+
+    .mat-list .mat-list-item.mat-multi-line, .mat-list .mat-list-option.mat-multi-line, .mat-nav-list .mat-list-item.mat-multi-line, .mat-nav-list .mat-list-option.mat-multi-line, .mat-selection-list .mat-list-item.mat-multi-line, .mat-selection-list .mat-list-option.mat-multi-line {
+        height: auto
+    }
+
+    .mat-list .mat-list-item.mat-multi-line .mat-list-item-content, .mat-list .mat-list-option.mat-multi-line .mat-list-item-content, .mat-nav-list .mat-list-item.mat-multi-line .mat-list-item-content, .mat-nav-list .mat-list-option.mat-multi-line .mat-list-item-content, .mat-selection-list .mat-list-item.mat-multi-line .mat-list-item-content, .mat-selection-list .mat-list-option.mat-multi-line .mat-list-item-content {
+        padding-top: 16px;
+        padding-bottom: 16px
+    }
+
+    .mat-list .mat-list-item .mat-list-text, .mat-list .mat-list-option .mat-list-text, .mat-nav-list .mat-list-item .mat-list-text, .mat-nav-list .mat-list-option .mat-list-text, .mat-selection-list .mat-list-item .mat-list-text, .mat-selection-list .mat-list-option .mat-list-text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 0
+    }
+
+    .mat-list .mat-list-item .mat-list-text > *, .mat-list .mat-list-option .mat-list-text > *, .mat-nav-list .mat-list-item .mat-list-text > *, .mat-nav-list .mat-list-option .mat-list-text > *, .mat-selection-list .mat-list-item .mat-list-text > *, .mat-selection-list .mat-list-option .mat-list-text > * {
+        margin: 0;
+        padding: 0;
+        font-weight: 400;
+        font-size: inherit
+    }
+
+    .mat-list .mat-list-item .mat-list-text:empty, .mat-list .mat-list-option .mat-list-text:empty, .mat-nav-list .mat-list-item .mat-list-text:empty, .mat-nav-list .mat-list-option .mat-list-text:empty, .mat-selection-list .mat-list-item .mat-list-text:empty, .mat-selection-list .mat-list-option .mat-list-text:empty {
+        display: none
+    }
+
+    .mat-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-list .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-nav-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-nav-list .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-selection-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-selection-list .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)) {
+        padding-right: 0;
+        padding-left: 16px
+    }
+
+    [dir=rtl] .mat-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-list .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)) {
+        padding-right: 16px;
+        padding-left: 0
+    }
+
+    .mat-list .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-list .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-nav-list .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-nav-list .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-selection-list .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-selection-list .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)) {
+        padding-left: 0;
+        padding-right: 16px
+    }
+
+    [dir=rtl] .mat-list .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-list .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)) {
+        padding-right: 0;
+        padding-left: 16px
+    }
+
+    .mat-list .mat-list-item .mat-list-avatar, .mat-list .mat-list-option .mat-list-avatar, .mat-nav-list .mat-list-item .mat-list-avatar, .mat-nav-list .mat-list-option .mat-list-avatar, .mat-selection-list .mat-list-item .mat-list-avatar, .mat-selection-list .mat-list-option .mat-list-avatar {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%
+    }
+
+    .mat-list .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-list .mat-list-option .mat-list-avatar ~ .mat-divider-inset, .mat-nav-list .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-nav-list .mat-list-option .mat-list-avatar ~ .mat-divider-inset, .mat-selection-list .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-selection-list .mat-list-option .mat-list-avatar ~ .mat-divider-inset {
+        margin-left: 72px;
+        width: calc(100% - 72px)
+    }
+
+    [dir=rtl] .mat-list .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-list .mat-list-option .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-nav-list .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-nav-list .mat-list-option .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-selection-list .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-selection-list .mat-list-option .mat-list-avatar ~ .mat-divider-inset {
+        margin-left: auto;
+        margin-right: 72px
+    }
+
+    .mat-list .mat-list-item .mat-list-icon, .mat-list .mat-list-option .mat-list-icon, .mat-nav-list .mat-list-item .mat-list-icon, .mat-nav-list .mat-list-option .mat-list-icon, .mat-selection-list .mat-list-item .mat-list-icon, .mat-selection-list .mat-list-option .mat-list-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        box-sizing: content-box;
+        border-radius: 50%;
+        padding: 4px
+    }
+
+    .mat-list .mat-list-item .mat-list-icon ~ .mat-divider-inset, .mat-list .mat-list-option .mat-list-icon ~ .mat-divider-inset, .mat-nav-list .mat-list-item .mat-list-icon ~ .mat-divider-inset, .mat-nav-list .mat-list-option .mat-list-icon ~ .mat-divider-inset, .mat-selection-list .mat-list-item .mat-list-icon ~ .mat-divider-inset, .mat-selection-list .mat-list-option .mat-list-icon ~ .mat-divider-inset {
+        margin-left: 64px;
+        width: calc(100% - 64px)
+    }
+
+    [dir=rtl] .mat-list .mat-list-item .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-list .mat-list-option .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-nav-list .mat-list-item .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-nav-list .mat-list-option .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-selection-list .mat-list-item .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-selection-list .mat-list-option .mat-list-icon ~ .mat-divider-inset {
+        margin-left: auto;
+        margin-right: 64px
+    }
+
+    .mat-list .mat-list-item .mat-divider, .mat-list .mat-list-option .mat-divider, .mat-nav-list .mat-list-item .mat-divider, .mat-nav-list .mat-list-option .mat-divider, .mat-selection-list .mat-list-item .mat-divider, .mat-selection-list .mat-list-option .mat-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 0
+    }
+
+    [dir=rtl] .mat-list .mat-list-item .mat-divider, [dir=rtl] .mat-list .mat-list-option .mat-divider, [dir=rtl] .mat-nav-list .mat-list-item .mat-divider, [dir=rtl] .mat-nav-list .mat-list-option .mat-divider, [dir=rtl] .mat-selection-list .mat-list-item .mat-divider, [dir=rtl] .mat-selection-list .mat-list-option .mat-divider {
+        margin-left: auto;
+        margin-right: 0
+    }
+
+    .mat-list .mat-list-item .mat-divider.mat-divider-inset, .mat-list .mat-list-option .mat-divider.mat-divider-inset, .mat-nav-list .mat-list-item .mat-divider.mat-divider-inset, .mat-nav-list .mat-list-option .mat-divider.mat-divider-inset, .mat-selection-list .mat-list-item .mat-divider.mat-divider-inset, .mat-selection-list .mat-list-option .mat-divider.mat-divider-inset {
+        position: absolute
+    }
+
+    .mat-list[dense], .mat-nav-list[dense], .mat-selection-list[dense] {
+        padding-top: 4px;
+        display: block
+    }
+
+    .mat-list[dense] .mat-subheader, .mat-nav-list[dense] .mat-subheader, .mat-selection-list[dense] .mat-subheader {
+        height: 40px;
+        line-height: 8px
+    }
+
+    .mat-list[dense] .mat-subheader:first-child, .mat-nav-list[dense] .mat-subheader:first-child, .mat-selection-list[dense] .mat-subheader:first-child {
+        margin-top: -4px
+    }
+
+    .mat-list[dense] .mat-list-item, .mat-list[dense] .mat-list-option, .mat-nav-list[dense] .mat-list-item, .mat-nav-list[dense] .mat-list-option, .mat-selection-list[dense] .mat-list-item, .mat-selection-list[dense] .mat-list-option {
+        display: block;
+        height: 40px
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-item-content, .mat-list[dense] .mat-list-option .mat-list-item-content, .mat-nav-list[dense] .mat-list-item .mat-list-item-content, .mat-nav-list[dense] .mat-list-option .mat-list-item-content, .mat-selection-list[dense] .mat-list-item .mat-list-item-content, .mat-selection-list[dense] .mat-list-option .mat-list-item-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 0 16px;
+        position: relative;
+        height: inherit
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-item-content-reverse, .mat-list[dense] .mat-list-option .mat-list-item-content-reverse, .mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse, .mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse, .mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse, .mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        flex-direction: row-reverse;
+        justify-content: space-around
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-item-ripple, .mat-list[dense] .mat-list-option .mat-list-item-ripple, .mat-nav-list[dense] .mat-list-item .mat-list-item-ripple, .mat-nav-list[dense] .mat-list-option .mat-list-item-ripple, .mat-selection-list[dense] .mat-list-item .mat-list-item-ripple, .mat-selection-list[dense] .mat-list-option .mat-list-item-ripple {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        pointer-events: none
+    }
+
+    .mat-list[dense] .mat-list-item.mat-list-item-avatar, .mat-list[dense] .mat-list-option.mat-list-item-avatar, .mat-nav-list[dense] .mat-list-item.mat-list-item-avatar, .mat-nav-list[dense] .mat-list-option.mat-list-item-avatar, .mat-selection-list[dense] .mat-list-item.mat-list-item-avatar, .mat-selection-list[dense] .mat-list-option.mat-list-item-avatar {
+        height: 48px
+    }
+
+    .mat-list[dense] .mat-list-item.mat-2-line, .mat-list[dense] .mat-list-option.mat-2-line, .mat-nav-list[dense] .mat-list-item.mat-2-line, .mat-nav-list[dense] .mat-list-option.mat-2-line, .mat-selection-list[dense] .mat-list-item.mat-2-line, .mat-selection-list[dense] .mat-list-option.mat-2-line {
+        height: 60px
+    }
+
+    .mat-list[dense] .mat-list-item.mat-3-line, .mat-list[dense] .mat-list-option.mat-3-line, .mat-nav-list[dense] .mat-list-item.mat-3-line, .mat-nav-list[dense] .mat-list-option.mat-3-line, .mat-selection-list[dense] .mat-list-item.mat-3-line, .mat-selection-list[dense] .mat-list-option.mat-3-line {
+        height: 76px
+    }
+
+    .mat-list[dense] .mat-list-item.mat-multi-line, .mat-list[dense] .mat-list-option.mat-multi-line, .mat-nav-list[dense] .mat-list-item.mat-multi-line, .mat-nav-list[dense] .mat-list-option.mat-multi-line, .mat-selection-list[dense] .mat-list-item.mat-multi-line, .mat-selection-list[dense] .mat-list-option.mat-multi-line {
+        height: auto
+    }
+
+    .mat-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content, .mat-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content, .mat-nav-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content, .mat-nav-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content, .mat-selection-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content, .mat-selection-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content {
+        padding-top: 16px;
+        padding-bottom: 16px
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-text, .mat-list[dense] .mat-list-option .mat-list-text, .mat-nav-list[dense] .mat-list-item .mat-list-text, .mat-nav-list[dense] .mat-list-option .mat-list-text, .mat-selection-list[dense] .mat-list-item .mat-list-text, .mat-selection-list[dense] .mat-list-option .mat-list-text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 0
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-text > *, .mat-list[dense] .mat-list-option .mat-list-text > *, .mat-nav-list[dense] .mat-list-item .mat-list-text > *, .mat-nav-list[dense] .mat-list-option .mat-list-text > *, .mat-selection-list[dense] .mat-list-item .mat-list-text > *, .mat-selection-list[dense] .mat-list-option .mat-list-text > * {
+        margin: 0;
+        padding: 0;
+        font-weight: 400;
+        font-size: inherit
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-text:empty, .mat-list[dense] .mat-list-option .mat-list-text:empty, .mat-nav-list[dense] .mat-list-item .mat-list-text:empty, .mat-nav-list[dense] .mat-list-option .mat-list-text:empty, .mat-selection-list[dense] .mat-list-item .mat-list-text:empty, .mat-selection-list[dense] .mat-list-option .mat-list-text:empty {
+        display: none
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-list[dense] .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-nav-list[dense] .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-nav-list[dense] .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-selection-list[dense] .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), .mat-selection-list[dense] .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)) {
+        padding-right: 0;
+        padding-left: 16px
+    }
+
+    [dir=rtl] .mat-list[dense] .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-list[dense] .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list[dense] .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list[dense] .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list[dense] .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list[dense] .mat-list-option .mat-list-item-content .mat-list-text:not(:nth-child(2)) {
+        padding-right: 16px;
+        padding-left: 0
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-list[dense] .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), .mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)) {
+        padding-left: 0;
+        padding-right: 16px
+    }
+
+    [dir=rtl] .mat-list[dense] .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-list[dense] .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)), [dir=rtl] .mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse .mat-list-text:not(:nth-child(2)) {
+        padding-right: 0;
+        padding-left: 16px
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-avatar, .mat-list[dense] .mat-list-option .mat-list-avatar, .mat-nav-list[dense] .mat-list-item .mat-list-avatar, .mat-nav-list[dense] .mat-list-option .mat-list-avatar, .mat-selection-list[dense] .mat-list-item .mat-list-avatar, .mat-selection-list[dense] .mat-list-option .mat-list-avatar {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, .mat-nav-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-nav-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, .mat-selection-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-selection-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset {
+        margin-left: 72px;
+        width: calc(100% - 72px)
+    }
+
+    [dir=rtl] .mat-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-nav-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-nav-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-selection-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-selection-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset {
+        margin-left: auto;
+        margin-right: 72px
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-icon, .mat-list[dense] .mat-list-option .mat-list-icon, .mat-nav-list[dense] .mat-list-item .mat-list-icon, .mat-nav-list[dense] .mat-list-option .mat-list-icon, .mat-selection-list[dense] .mat-list-item .mat-list-icon, .mat-selection-list[dense] .mat-list-option .mat-list-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        box-sizing: content-box;
+        border-radius: 50%;
+        padding: 4px
+    }
+
+    .mat-list[dense] .mat-list-item .mat-list-icon ~ .mat-divider-inset, .mat-list[dense] .mat-list-option .mat-list-icon ~ .mat-divider-inset, .mat-nav-list[dense] .mat-list-item .mat-list-icon ~ .mat-divider-inset, .mat-nav-list[dense] .mat-list-option .mat-list-icon ~ .mat-divider-inset, .mat-selection-list[dense] .mat-list-item .mat-list-icon ~ .mat-divider-inset, .mat-selection-list[dense] .mat-list-option .mat-list-icon ~ .mat-divider-inset {
+        margin-left: 60px;
+        width: calc(100% - 60px)
+    }
+
+    [dir=rtl] .mat-list[dense] .mat-list-item .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-list[dense] .mat-list-option .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-nav-list[dense] .mat-list-item .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-nav-list[dense] .mat-list-option .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-selection-list[dense] .mat-list-item .mat-list-icon ~ .mat-divider-inset, [dir=rtl] .mat-selection-list[dense] .mat-list-option .mat-list-icon ~ .mat-divider-inset {
+        margin-left: auto;
+        margin-right: 60px
+    }
+
+    .mat-list[dense] .mat-list-item .mat-divider, .mat-list[dense] .mat-list-option .mat-divider, .mat-nav-list[dense] .mat-list-item .mat-divider, .mat-nav-list[dense] .mat-list-option .mat-divider, .mat-selection-list[dense] .mat-list-item .mat-divider, .mat-selection-list[dense] .mat-list-option .mat-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 0
+    }
+
+    [dir=rtl] .mat-list[dense] .mat-list-item .mat-divider, [dir=rtl] .mat-list[dense] .mat-list-option .mat-divider, [dir=rtl] .mat-nav-list[dense] .mat-list-item .mat-divider, [dir=rtl] .mat-nav-list[dense] .mat-list-option .mat-divider, [dir=rtl] .mat-selection-list[dense] .mat-list-item .mat-divider, [dir=rtl] .mat-selection-list[dense] .mat-list-option .mat-divider {
+        margin-left: auto;
+        margin-right: 0
+    }
+
+    .mat-list[dense] .mat-list-item .mat-divider.mat-divider-inset, .mat-list[dense] .mat-list-option .mat-divider.mat-divider-inset, .mat-nav-list[dense] .mat-list-item .mat-divider.mat-divider-inset, .mat-nav-list[dense] .mat-list-option .mat-divider.mat-divider-inset, .mat-selection-list[dense] .mat-list-item .mat-divider.mat-divider-inset, .mat-selection-list[dense] .mat-list-option .mat-divider.mat-divider-inset {
+        position: absolute
+    }
+
+    .mat-nav-list a {
+        text-decoration: none;
+        color: inherit
+    }
+
+    .mat-nav-list .mat-list-item-content {
+        cursor: pointer
+    }
+
+    .mat-nav-list .mat-list-item-content.mat-list-item-focus, .mat-nav-list .mat-list-item-content:hover {
+        outline: 0
+    }
+
+    .mat-list-option:not([disabled]) {
+        cursor: pointer
+    }</style>
+    <style ng-transition="serverApp">.mat-icon {
+        background-repeat: no-repeat;
+        display: inline-block;
+        fill: currentColor;
+        height: 24px;
+        width: 24px
+    }</style>
+    <style ng-transition="serverApp">.mat-toolbar-row, .mat-toolbar-single-row {
+        display: flex;
+        box-sizing: border-box;
+        padding: 0 16px;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        white-space: nowrap
+    }
+
+    .mat-toolbar-multiple-rows {
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+        width: 100%
+    }
+
+    .mat-toolbar-multiple-rows {
+        min-height: 64px
+    }
+
+    .mat-toolbar-row, .mat-toolbar-single-row {
+        height: 64px
+    }
+
+    @media (max-width: 599px) {
+        .mat-toolbar-multiple-rows {
+            min-height: 56px
+        }
+
+        .mat-toolbar-row, .mat-toolbar-single-row {
+            height: 56px
+        }
+    }</style>
+    <style ng-transition="serverApp">.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
+        box-sizing: border-box;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px
+    }
+
+    [disabled].mat-button, [disabled].mat-fab, [disabled].mat-flat-button, [disabled].mat-icon-button, [disabled].mat-mini-fab, [disabled].mat-raised-button, [disabled].mat-stroked-button {
+        cursor: default
+    }
+
+    .cdk-keyboard-focused.mat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-flat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-stroked-button .mat-button-focus-overlay, .cdk-program-focused.mat-button .mat-button-focus-overlay, .cdk-program-focused.mat-fab .mat-button-focus-overlay, .cdk-program-focused.mat-flat-button .mat-button-focus-overlay, .cdk-program-focused.mat-icon-button .mat-button-focus-overlay, .cdk-program-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-program-focused.mat-raised-button .mat-button-focus-overlay, .cdk-program-focused.mat-stroked-button .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-button::-moz-focus-inner, .mat-fab::-moz-focus-inner, .mat-flat-button::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-mini-fab::-moz-focus-inner, .mat-raised-button::-moz-focus-inner, .mat-stroked-button::-moz-focus-inner {
+        border: 0
+    }
+
+    .mat-fab, .mat-mini-fab, .mat-raised-button {
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]), .mat-raised-button:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab:not([disabled]):active:not([class*=mat-elevation-z]), .mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]), .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    [disabled].mat-fab, [disabled].mat-mini-fab, [disabled].mat-raised-button {
+        box-shadow: none
+    }
+
+    .mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
+        transition: none;
+        opacity: 0
+    }
+
+    .mat-button:hover .mat-button-focus-overlay, .mat-stroked-button:hover .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-stroked-button {
+        border: 1px solid currentColor;
+        padding: 0 15px;
+        line-height: 34px
+    }
+
+    .mat-stroked-button:not([class*=mat-elevation-z]) {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, .2), 0 0 0 0 rgba(0, 0, 0, .14), 0 0 0 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-flat-button:not([class*=mat-elevation-z]) {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, .2), 0 0 0 0 rgba(0, 0, 0, .14), 0 0 0 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab {
+        min-width: 0;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        flex-shrink: 0
+    }
+
+    .mat-fab:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab .mat-button-wrapper {
+        padding: 16px 0;
+        display: inline-block;
+        line-height: 24px
+    }
+
+    .mat-mini-fab {
+        min-width: 0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        flex-shrink: 0
+    }
+
+    .mat-mini-fab:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+    }
+
+    .mat-mini-fab .mat-button-wrapper {
+        padding: 8px 0;
+        display: inline-block;
+        line-height: 24px
+    }
+
+    .mat-icon-button {
+        padding: 0;
+        min-width: 0;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        line-height: 40px;
+        border-radius: 50%
+    }
+
+    .mat-icon-button .mat-icon, .mat-icon-button i {
+        line-height: 24px
+    }
+
+    .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+        color: currentColor
+    }
+
+    .mat-button .mat-button-wrapper > *, .mat-fab .mat-button-wrapper > *, .mat-icon-button .mat-button-wrapper > *, .mat-mini-fab .mat-button-wrapper > *, .mat-raised-button .mat-button-wrapper > * {
+        vertical-align: middle
+    }
+
+    .mat-button-focus-overlay, .mat-button-ripple {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        pointer-events: none
+    }
+
+    .mat-button-focus-overlay {
+        background-color: rgba(0, 0, 0, .12);
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity .2s cubic-bezier(.35, 0, .25, 1), background-color .2s cubic-bezier(.35, 0, .25, 1)
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-button-focus-overlay {
+            background-color: rgba(255, 255, 255, .5)
+        }
+    }
+
+    .mat-button-ripple-round {
+        border-radius: 50%;
+        z-index: 1
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+            outline: solid 1px
+        }
+    }</style>
+    <style ng-transition="serverApp">.mat-progress-spinner {
+        display: block;
+        position: relative
+    }
+
+    .mat-progress-spinner svg {
+        position: absolute;
+        transform: rotate(-90deg);
+        top: 0;
+        left: 0;
+        transform-origin: center;
+        overflow: visible
+    }
+
+    .mat-progress-spinner circle {
+        fill: transparent;
+        transform-origin: center;
+        transition: stroke-dashoffset 225ms linear
+    }
+
+    .mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] {
+        animation: mat-progress-spinner-linear-rotate 2s linear infinite
+    }
+
+    .mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] circle {
+        transition-property: stroke;
+        animation-duration: 4s;
+        animation-timing-function: cubic-bezier(.35, 0, .25, 1);
+        animation-iteration-count: infinite
+    }
+
+    .mat-progress-spinner.mat-progress-spinner-indeterminate-fallback-animation[mode=indeterminate] {
+        animation: mat-progress-spinner-stroke-rotate-fallback 10s cubic-bezier(.87, .03, .33, 1) infinite
+    }
+
+    .mat-progress-spinner.mat-progress-spinner-indeterminate-fallback-animation[mode=indeterminate] circle {
+        transition-property: stroke
+    }
+
+    @keyframes mat-progress-spinner-linear-rotate {
+        0% {
+            transform: rotate(0)
+        }
+        100% {
+            transform: rotate(360deg)
+        }
+    }
+
+    @keyframes mat-progress-spinner-stroke-rotate-100 {
+        0% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotate(0)
+        }
+        12.5% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotate(0)
+        }
+        12.51% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotateX(180deg) rotate(72.5deg)
+        }
+        25% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotateX(180deg) rotate(72.5deg)
+        }
+        25.1% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotate(270deg)
+        }
+        37.5% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotate(270deg)
+        }
+        37.51% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotateX(180deg) rotate(161.5deg)
+        }
+        50% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotateX(180deg) rotate(161.5deg)
+        }
+        50.01% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotate(180deg)
+        }
+        62.5% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotate(180deg)
+        }
+        62.51% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotateX(180deg) rotate(251.5deg)
+        }
+        75% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotateX(180deg) rotate(251.5deg)
+        }
+        75.01% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotate(90deg)
+        }
+        87.5% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotate(90deg)
+        }
+        87.51% {
+            stroke-dashoffset: 56.54867px;
+            transform: rotateX(180deg) rotate(341.5deg)
+        }
+        100% {
+            stroke-dashoffset: 268.60617px;
+            transform: rotateX(180deg) rotate(341.5deg)
+        }
+    }
+
+    @keyframes mat-progress-spinner-stroke-rotate-fallback {
+        0% {
+            transform: rotate(0)
+        }
+        25% {
+            transform: rotate(1170deg)
+        }
+        50% {
+            transform: rotate(2340deg)
+        }
+        75% {
+            transform: rotate(3510deg)
+        }
+        100% {
+            transform: rotate(4680deg)
+        }
+    }</style>
+    <style ng-transition="serverApp">.course[_ngcontent-c8] {
+        text-align: center;
+        max-width: 390px;
+        margin: 0 auto
+    }
+
+    .course-thumbnail[_ngcontent-c8] {
+        width: 150px;
+        margin: 20px auto 0 auto;
+        display: block
+    }
+
+    .description-cell[_ngcontent-c8] {
+        text-align: left;
+        margin: 10px auto
+    }
+
+    .duration-cell[_ngcontent-c8] {
+        text-align: center
+    }
+
+    .duration-cell[_ngcontent-c8] mat-icon[_ngcontent-c8] {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px
+    }
+
+    .spinner-container[_ngcontent-c8] {
+        height: 360px;
+        width: 390px;
+        position: fixed
+    }
+
+    .lessons-table[_ngcontent-c8] {
+        min-height: 360px;
+        margin-top: 10px
+    }
+
+    .spinner-container[_ngcontent-c8] mat-spinner[_ngcontent-c8] {
+        margin: 130px auto 0 auto
+    }</style>
+    <meta name="description" content="Learn Angular Progressive Web Applications, build the future of the Web Today.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@AngularUniv">
+    <meta name="twitter:title" content="Angular PWA - Progressive Web Apps Course">
+    <meta name="twitter:description" content="Angular PWA - Progressive Web Apps Course">
+    <meta name="twitter:text:description" content="Angular PWA - Progressive Web Apps Course">
+    <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/16628445?v=3&amp;s=200">
+</head>
+<body>
+<app-root _nghost-c0="" ng-version="5.2.3">
+    <mat-sidenav-container _ngcontent-c0="" class="mat-drawer-container mat-sidenav-container" fullscreen="">
+        <div class="mat-drawer-backdrop"></div>
+        <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+        <mat-sidenav _ngcontent-c0=""
+                     class="mat-drawer mat-sidenav ng-tns-c2-0 ng-trigger ng-trigger-transform mat-drawer-over ng-star-inserted"
+                     tabindex="-1" style="">
+            <mat-nav-list _ngcontent-c0="" class="mat-nav-list" role="navigation">
+
+                <a _ngcontent-c0="" class="mat-list-item" mat-list-item="" routerlink="/" href="/">
+                    <div class="mat-list-item-content">
+                        <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                        <div class="mat-list-text"></div>
+                        <mat-icon _ngcontent-c0="" class="mat-icon material-icons" role="img" aria-hidden="true">
+                            library_books
+                        </mat-icon>
+                        <span _ngcontent-c0="">Courses</span>
+                    </div>
+                </a>
+
+                <a _ngcontent-c0="" class="mat-list-item" mat-list-item="">
+                    <div class="mat-list-item-content">
+                        <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                        <div class="mat-list-text"></div>
+                        <mat-icon _ngcontent-c0="" class="mat-icon material-icons" role="img" aria-hidden="true">
+                            person_add
+                        </mat-icon>
+                        <span _ngcontent-c0="">Register</span>
+                    </div>
+                </a>
+
+                <a _ngcontent-c0="" class="mat-list-item" mat-list-item="">
+                    <div class="mat-list-item-content">
+                        <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                        <div class="mat-list-text"></div>
+                        <mat-icon _ngcontent-c0="" class="mat-icon material-icons" role="img" aria-hidden="true">
+                            account_circle
+                        </mat-icon>
+                        <span _ngcontent-c0="">Login</span>
+                    </div>
+                </a>
+
+            </mat-nav-list>
+
+        </mat-sidenav>
+        <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><!---->
+        <mat-sidenav-content cdkscrollable="" class="mat-drawer-content mat-sidenav-content ng-star-inserted" style="">
+
+
+            <mat-toolbar _ngcontent-c0="" class="mat-toolbar mat-primary mat-toolbar-single-row" color="primary">
+                <button _ngcontent-c0="" mat-icon-button=""><span class="mat-button-wrapper">
+            <mat-icon _ngcontent-c0="" class="mat-icon material-icons" role="img" aria-hidden="true">menu</mat-icon>
+        </span>
+                    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+                    <div class="mat-button-focus-overlay"></div>
+                </button>
+            </mat-toolbar>
+
+
+            <!---->
+
+            <router-outlet _ngcontent-c0=""></router-outlet>
+            <course _nghost-c8="" class="ng-star-inserted"><!---->
+
+
+            </course>
+
+
+            <!---->
+            <div _ngcontent-c0="" class="spinner-container ng-star-inserted">
+
+                <mat-spinner _ngcontent-c0=""
+                             class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"
+                             mode="indeterminate" role="progressbar" style="width:100px;height:100px;">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="width:100px;height:100px;"
+                         viewBox="0 0 100 100">
+                        <circle cx="50%" cy="50%" r="45"
+                                style="animation-name:mat-progress-spinner-stroke-rotate-100;stroke-dasharray:282.7433388230814px;stroke-width:10%;"></circle>
+                    </svg>
+                </mat-spinner>
+
+            </div>
+
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</app-root>
+<script type="text/javascript" src="inline.c9fb25da055f37443666.bundle.js"></script>
+<script type="text/javascript" src="polyfills.9afba58cc5c5e906563e.bundle.js"></script>
+<script type="text/javascript" src="main.9acc53f5ade015315015.bundle.js"></script>
+</body>
+</html>
