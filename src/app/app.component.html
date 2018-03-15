@@ -8,10 +8,6 @@
                 <span>Courses</span>
             </a>
 
-            <a mat-list-item routerLink="about">
-                <mat-icon>question_answer</mat-icon>
-                <span>About</span>
-            </a>
             <a mat-list-item>
                 <mat-icon>person_add</mat-icon>
                 <span>Register</span>
@@ -32,6 +28,23 @@
         </button>
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+
+    <ng-container>
+
+        <router-outlet></router-outlet>
+
+    </ng-container>
+
+
+    <div class="spinner-container" *appShellRender>
+
+        <mat-spinner></mat-spinner>
+
+    </div>
+
+
+
+
+
 
 </mat-sidenav-container>

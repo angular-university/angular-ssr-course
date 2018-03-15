@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -9,7 +9,6 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 import {CourseComponent} from "./course/course.component";
@@ -27,6 +26,8 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import { HttpClientModule} from '@angular/common/http';
+import {AppShellNoRenderDirective} from './directives/app-shell-no-render.directive';
+import {AppShellRenderDirective} from './directives/app-shell-render.directive';
 
 
 
@@ -36,13 +37,15 @@ import { HttpClientModule} from '@angular/common/http';
     declarations: [
         AppComponent,
         HomeComponent,
-        AboutComponent,
         CourseComponent,
         CoursesCardListComponent,
-        CourseDialogComponent
+        CourseDialogComponent,
+        AppShellNoRenderDirective,
+        AppShellRenderDirective
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        BrowserTransferStateModule,
         BrowserAnimationsModule,
         MatMenuModule,
         MatButtonModule,
