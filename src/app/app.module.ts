@@ -45,6 +45,7 @@ import {AppShellRenderDirective} from './directives/app-shell-render.directive';
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        BrowserTransferStateModule,
         BrowserAnimationsModule,
         MatMenuModule,
         MatButtonModule,

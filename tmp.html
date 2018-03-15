@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Angular PWA - Progressive Web Apps Course</title>
+    <title>Angular Universal Course</title>
     <base href="/">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:300" rel="stylesheet">
-    <link href="styles.faa5dcd931f22d491e1f.bundle.css" rel="stylesheet">
+    <link href="styles.da982ff4f79cdf5e8fe7.bundle.css" rel="stylesheet">
     <style ng-transition="serverApp">body {
         margin: 0
     }
@@ -72,8 +72,6 @@
     }
 
     .mat-drawer-content {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
         position: relative;
         z-index: 1;
         display: block;
@@ -206,7 +204,7 @@
         pointer-events: none
     }
 
-    .mat-list .mat-list-item.mat-list-item-avatar, .mat-list .mat-list-option.mat-list-item-avatar, .mat-nav-list .mat-list-item.mat-list-item-avatar, .mat-nav-list .mat-list-option.mat-list-item-avatar, .mat-selection-list .mat-list-item.mat-list-item-avatar, .mat-selection-list .mat-list-option.mat-list-item-avatar {
+    .mat-list .mat-list-item.mat-list-item-with-avatar, .mat-list .mat-list-option.mat-list-item-with-avatar, .mat-nav-list .mat-list-item.mat-list-item-with-avatar, .mat-nav-list .mat-list-option.mat-list-item-with-avatar, .mat-selection-list .mat-list-item.mat-list-item-with-avatar, .mat-selection-list .mat-list-option.mat-list-item-with-avatar {
         height: 56px
     }
 
@@ -367,7 +365,7 @@
         pointer-events: none
     }
 
-    .mat-list[dense] .mat-list-item.mat-list-item-avatar, .mat-list[dense] .mat-list-option.mat-list-item-avatar, .mat-nav-list[dense] .mat-list-item.mat-list-item-avatar, .mat-nav-list[dense] .mat-list-option.mat-list-item-avatar, .mat-selection-list[dense] .mat-list-item.mat-list-item-avatar, .mat-selection-list[dense] .mat-list-option.mat-list-item-avatar {
+    .mat-list[dense] .mat-list-item.mat-list-item-with-avatar, .mat-list[dense] .mat-list-option.mat-list-item-with-avatar, .mat-nav-list[dense] .mat-list-item.mat-list-item-with-avatar, .mat-nav-list[dense] .mat-list-option.mat-list-item-with-avatar, .mat-selection-list[dense] .mat-list-item.mat-list-item-with-avatar, .mat-selection-list[dense] .mat-list-option.mat-list-item-with-avatar {
         height: 48px
     }
 
@@ -430,19 +428,19 @@
 
     .mat-list[dense] .mat-list-item .mat-list-avatar, .mat-list[dense] .mat-list-option .mat-list-avatar, .mat-nav-list[dense] .mat-list-item .mat-list-avatar, .mat-nav-list[dense] .mat-list-option .mat-list-avatar, .mat-selection-list[dense] .mat-list-item .mat-list-avatar, .mat-selection-list[dense] .mat-list-option .mat-list-avatar {
         flex-shrink: 0;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%
     }
 
     .mat-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, .mat-nav-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-nav-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, .mat-selection-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, .mat-selection-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset {
-        margin-left: 72px;
-        width: calc(100% - 72px)
+        margin-left: 68px;
+        width: calc(100% - 68px)
     }
 
     [dir=rtl] .mat-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-nav-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-nav-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-selection-list[dense] .mat-list-item .mat-list-avatar ~ .mat-divider-inset, [dir=rtl] .mat-selection-list[dense] .mat-list-option .mat-list-avatar ~ .mat-divider-inset {
         margin-left: auto;
-        margin-right: 72px
+        margin-right: 68px
     }
 
     .mat-list[dense] .mat-list-item .mat-list-icon, .mat-list[dense] .mat-list-option .mat-list-icon, .mat-nav-list[dense] .mat-list-item .mat-list-icon, .mat-nav-list[dense] .mat-list-option .mat-list-icon, .mat-selection-list[dense] .mat-list-item .mat-list-icon, .mat-selection-list[dense] .mat-list-option .mat-list-icon {
@@ -487,16 +485,14 @@
         color: inherit
     }
 
-    .mat-nav-list .mat-list-item-content {
-        cursor: pointer
-    }
-
-    .mat-nav-list .mat-list-item-content.mat-list-item-focus, .mat-nav-list .mat-list-item-content:hover {
+    .mat-nav-list .mat-list-item {
+        cursor: pointer;
         outline: 0
     }
 
-    .mat-list-option:not([disabled]) {
-        cursor: pointer
+    .mat-list-option:not(.mat-list-item-disabled) {
+        cursor: pointer;
+        outline: 0
     }</style>
     <style ng-transition="serverApp">.mat-icon {
         background-repeat: no-repeat;
@@ -539,7 +535,7 @@
             height: 56px
         }
     }</style>
-    <style ng-transition="serverApp">.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
+    <style ng-transition="serverApp">.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
         box-sizing: border-box;
         position: relative;
         -webkit-user-select: none;
@@ -562,33 +558,16 @@
         border-radius: 2px
     }
 
-    [disabled].mat-button, [disabled].mat-fab, [disabled].mat-flat-button, [disabled].mat-icon-button, [disabled].mat-mini-fab, [disabled].mat-raised-button, [disabled].mat-stroked-button {
+    .mat-button[disabled], .mat-flat-button[disabled], .mat-icon-button[disabled], .mat-stroked-button[disabled] {
         cursor: default
     }
 
-    .cdk-keyboard-focused.mat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-flat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-stroked-button .mat-button-focus-overlay, .cdk-program-focused.mat-button .mat-button-focus-overlay, .cdk-program-focused.mat-fab .mat-button-focus-overlay, .cdk-program-focused.mat-flat-button .mat-button-focus-overlay, .cdk-program-focused.mat-icon-button .mat-button-focus-overlay, .cdk-program-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-program-focused.mat-raised-button .mat-button-focus-overlay, .cdk-program-focused.mat-stroked-button .mat-button-focus-overlay {
+    .mat-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-button.cdk-program-focused .mat-button-focus-overlay, .mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-flat-button.cdk-program-focused .mat-button-focus-overlay, .mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-icon-button.cdk-program-focused .mat-button-focus-overlay, .mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-stroked-button.cdk-program-focused .mat-button-focus-overlay {
         opacity: 1
     }
 
-    .mat-button::-moz-focus-inner, .mat-fab::-moz-focus-inner, .mat-flat-button::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-mini-fab::-moz-focus-inner, .mat-raised-button::-moz-focus-inner, .mat-stroked-button::-moz-focus-inner {
+    .mat-button::-moz-focus-inner, .mat-flat-button::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-stroked-button::-moz-focus-inner {
         border: 0
-    }
-
-    .mat-fab, .mat-mini-fab, .mat-raised-button {
-        transform: translate3d(0, 0, 0);
-        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
-    }
-
-    .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]), .mat-raised-button:not([class*=mat-elevation-z]) {
-        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
-    }
-
-    .mat-fab:not([disabled]):active:not([class*=mat-elevation-z]), .mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]), .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
-        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
-    }
-
-    [disabled].mat-fab, [disabled].mat-mini-fab, [disabled].mat-raised-button {
-        box-shadow: none
     }
 
     .mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
@@ -598,6 +577,55 @@
 
     .mat-button:hover .mat-button-focus-overlay, .mat-stroked-button:hover .mat-button-focus-overlay {
         opacity: 1
+    }
+
+    .mat-raised-button {
+        box-sizing: border-box;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px;
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .mat-raised-button[disabled] {
+        cursor: default
+    }
+
+    .mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-raised-button.cdk-program-focused .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-raised-button::-moz-focus-inner {
+        border: 0
+    }
+
+    .mat-raised-button:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    .mat-raised-button[disabled] {
+        box-shadow: none
     }
 
     .mat-stroked-button {
@@ -615,12 +643,58 @@
     }
 
     .mat-fab {
+        box-sizing: border-box;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px;
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
         min-width: 0;
         border-radius: 50%;
         width: 56px;
         height: 56px;
         padding: 0;
         flex-shrink: 0
+    }
+
+    .mat-fab[disabled] {
+        cursor: default
+    }
+
+    .mat-fab.cdk-keyboard-focused .mat-button-focus-overlay, .mat-fab.cdk-program-focused .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-fab::-moz-focus-inner {
+        border: 0
+    }
+
+    .mat-fab:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab[disabled] {
+        box-shadow: none
     }
 
     .mat-fab:not([class*=mat-elevation-z]) {
@@ -638,12 +712,58 @@
     }
 
     .mat-mini-fab {
+        box-sizing: border-box;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px;
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
         min-width: 0;
         border-radius: 50%;
         width: 40px;
         height: 40px;
         padding: 0;
         flex-shrink: 0
+    }
+
+    .mat-mini-fab[disabled] {
+        cursor: default
+    }
+
+    .mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay, .mat-mini-fab.cdk-program-focused .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-mini-fab::-moz-focus-inner {
+        border: 0
+    }
+
+    .mat-mini-fab:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+    }
+
+    .mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    .mat-mini-fab[disabled] {
+        box-shadow: none
     }
 
     .mat-mini-fab:not([class*=mat-elevation-z]) {
@@ -710,7 +830,7 @@
     }
 
     @media screen and (-ms-high-contrast: active) {
-        .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+        .mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
             outline: solid 1px
         }
     }</style>
@@ -771,7 +891,7 @@
             stroke-dashoffset: 56.54867px;
             transform: rotate(0)
         }
-        12.51% {
+        12.5001% {
             stroke-dashoffset: 56.54867px;
             transform: rotateX(180deg) rotate(72.5deg)
         }
@@ -779,7 +899,7 @@
             stroke-dashoffset: 268.60617px;
             transform: rotateX(180deg) rotate(72.5deg)
         }
-        25.1% {
+        25.0001% {
             stroke-dashoffset: 268.60617px;
             transform: rotate(270deg)
         }
@@ -787,7 +907,7 @@
             stroke-dashoffset: 56.54867px;
             transform: rotate(270deg)
         }
-        37.51% {
+        37.5001% {
             stroke-dashoffset: 56.54867px;
             transform: rotateX(180deg) rotate(161.5deg)
         }
@@ -795,7 +915,7 @@
             stroke-dashoffset: 268.60617px;
             transform: rotateX(180deg) rotate(161.5deg)
         }
-        50.01% {
+        50.0001% {
             stroke-dashoffset: 268.60617px;
             transform: rotate(180deg)
         }
@@ -803,7 +923,7 @@
             stroke-dashoffset: 56.54867px;
             transform: rotate(180deg)
         }
-        62.51% {
+        62.5001% {
             stroke-dashoffset: 56.54867px;
             transform: rotateX(180deg) rotate(251.5deg)
         }
@@ -811,7 +931,7 @@
             stroke-dashoffset: 268.60617px;
             transform: rotateX(180deg) rotate(251.5deg)
         }
-        75.01% {
+        75.0001% {
             stroke-dashoffset: 268.60617px;
             transform: rotate(90deg)
         }
@@ -819,7 +939,7 @@
             stroke-dashoffset: 56.54867px;
             transform: rotate(90deg)
         }
-        87.51% {
+        87.5001% {
             stroke-dashoffset: 56.54867px;
             transform: rotateX(180deg) rotate(341.5deg)
         }
@@ -846,57 +966,57 @@
             transform: rotate(4680deg)
         }
     }</style>
-    <style ng-transition="serverApp">.course[_ngcontent-c8] {
+    <style ng-transition="serverApp">.course[_ngcontent-c14] {
         text-align: center;
         max-width: 390px;
         margin: 0 auto
     }
 
-    .course-thumbnail[_ngcontent-c8] {
+    .course-thumbnail[_ngcontent-c14] {
         width: 150px;
         margin: 20px auto 0 auto;
         display: block
     }
 
-    .description-cell[_ngcontent-c8] {
+    .description-cell[_ngcontent-c14] {
         text-align: left;
         margin: 10px auto
     }
 
-    .duration-cell[_ngcontent-c8] {
+    .duration-cell[_ngcontent-c14] {
         text-align: center
     }
 
-    .duration-cell[_ngcontent-c8] mat-icon[_ngcontent-c8] {
+    .duration-cell[_ngcontent-c14] mat-icon[_ngcontent-c14] {
         display: inline-block;
         vertical-align: middle;
         font-size: 20px
     }
 
-    .spinner-container[_ngcontent-c8] {
+    .spinner-container[_ngcontent-c14] {
         height: 360px;
         width: 390px;
         position: fixed
     }
 
-    .lessons-table[_ngcontent-c8] {
+    .lessons-table[_ngcontent-c14] {
         min-height: 360px;
         margin-top: 10px
     }
 
-    .spinner-container[_ngcontent-c8] mat-spinner[_ngcontent-c8] {
+    .spinner-container[_ngcontent-c14] mat-spinner[_ngcontent-c14] {
         margin: 130px auto 0 auto
     }</style>
-    <meta name="description" content="Learn Angular Progressive Web Applications, build the future of the Web Today.">
+    <meta name="description" content="Use Angular on the server too! Learn Angular Server-Side Rendering.">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@AngularUniv">
-    <meta name="twitter:title" content="Angular PWA - Progressive Web Apps Course">
-    <meta name="twitter:description" content="Angular PWA - Progressive Web Apps Course">
-    <meta name="twitter:text:description" content="Angular PWA - Progressive Web Apps Course">
+    <meta name="twitter:title" content="Angular Universal Course">
+    <meta name="twitter:description" content="Angular Universal Course">
+    <meta name="twitter:text:description" content="Angular Universal Course">
     <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/16628445?v=3&amp;s=200">
 </head>
 <body>
-<app-root _nghost-c0="" ng-version="5.2.3">
+<app-root _nghost-c0="" ng-version="5.2.9">
     <mat-sidenav-container _ngcontent-c0="" class="mat-drawer-container mat-sidenav-container" fullscreen="">
         <div class="mat-drawer-backdrop"></div>
         <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
@@ -958,7 +1078,7 @@
             <!---->
 
             <router-outlet _ngcontent-c0=""></router-outlet>
-            <course _nghost-c8="" class="ng-star-inserted"><!---->
+            <course _nghost-c14="" class="ng-star-inserted"><!---->
 
 
             </course>
@@ -983,8 +1103,10 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 </app-root>
-<script type="text/javascript" src="inline.c9fb25da055f37443666.bundle.js"></script>
+<script type="text/javascript" src="inline.92882b8dd4bfd1072525.bundle.js"></script>
 <script type="text/javascript" src="polyfills.9afba58cc5c5e906563e.bundle.js"></script>
-<script type="text/javascript" src="main.9acc53f5ade015315015.bundle.js"></script>
+<script type="text/javascript" src="main.dc99f22f3f71f82b96f5.bundle.js"></script>
+<script id="serverApp-state" type="application/json">{
+    &q;course-01&q;: {&q;category&q;: &q;BEGINNER&q;, &q;courseListIcon&q;:&q;https: //angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png&q;,&q;description&q;:&q;Angular Universal Course&q;,&q;iconUrl&q;:&q;https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-universal-small.png&q;,&q;id&q;:&q;01&q;,&q;lessonsCount&q;:10,&q;longDescription&q;:&q;Use Angular on the server too! Learn Angular Server-Side Rendering.&q;}}</script>
 </body>
 </html>
