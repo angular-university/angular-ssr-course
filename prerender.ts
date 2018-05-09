@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import {renderModuleFactory} from '@angular/platform-server';
 import {writeFileSync} from 'fs';
 
-const {AppServerModuleNgFactory} = require('./dist-server/main.bundle');
+const {AppServerModuleNgFactory} = require('./dist-server/main');
 
 
 renderModuleFactory(AppServerModuleNgFactory, {
