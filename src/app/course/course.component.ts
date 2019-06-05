@@ -1,11 +1,12 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {Course} from "../model/course";
-import {CoursesService} from "../services/courses.service";
+import {ActivatedRoute} from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import {Course} from '../model/course';
+import {CoursesService} from '../services/courses.service';
 import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/operators';
-import {merge} from "rxjs/observable/merge";
-import {fromEvent} from 'rxjs/observable/fromEvent';
+import {merge, fromEvent} from 'rxjs';
 import {Lesson} from '../model/lesson';
 import {Meta, Title} from '@angular/platform-browser';
 
