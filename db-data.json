@@ -2,7 +2,7 @@
   "courses": {
     "01": {
       "id": "01",
-      "description": "Angular Universal Course",
+      "description": "Angular Universal In Depth",
       "iconUrl": "https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg",
       "courseListIcon": "https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png",
       "longDescription": "Use Angular on the server too! Learn Angular Server-Side Rendering.",
