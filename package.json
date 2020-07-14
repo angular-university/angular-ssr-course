@@ -4,12 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "update": "ng update @angular/core @angular/cli",
     "start": "ng serve",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prerender": "ts-node -P ./server.tsconfig.json ./prerender.ts",
-    "prerender:debug": "ts-node -P ./server.tsconfig.json --inspect ./prerender.ts",
+    "prerender:debug": "ts-node -P ./server.tsconfig.json --inspect ./prerender.ts"
   },
   "private": true,
   "dependencies": {
