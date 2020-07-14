@@ -3,7 +3,7 @@
     "01": {
       "id": "01",
       "description": "Angular Universal Course",
-      "iconUrl": "https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-universal-small.png",
+      "iconUrl": "https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg",
       "courseListIcon": "https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png",
       "longDescription": "Use Angular on the server too! Learn Angular Server-Side Rendering.",
       "category": "BEGINNER",
@@ -32,62 +32,62 @@
     "01": [
       {
         "id": "01",
-        "description": "Angular Tutorial For Beginners - Build Your First App - Hello World Step By Step",
+        "description": "Angular Universal Course Helicopter View",
         "duration": "4:17",
         "seqNo": 1,
         "courseId": "1"
       },
       {
         "id": "02",
-        "description": "Building Your First  Component - Component Composition",
+        "description": "Angular Universal Course Kickoff - Git, Node, IDE, Lessons Code",
         "duration": "2:07",
         "seqNo": 2
       },
       {
         "id": "03",
-        "description": "Component @Input - How To Pass Input Data To an  Component",
+        "description": "Why Angular Universal? Performance Benefits",
         "duration": "2:33",
         "seqNo": 3
       },
       {
         "id": "04",
-        "description": " Component Events - Using @Output to create custom events",
+        "description": "Why Angular Universal? Social Media Crawlers",
         "duration": "4:44",
         "seqNo": 4
       },
       {
         "id": "05",
-        "description": " Component Templates - Inline Vs External",
+        "description": "Why Angular Universal? SEO or Search Engine Optimization",
         "duration": "2:55",
         "seqNo": 5
       },
       {
         "id": "06",
-        "description": "Styling  Components - Learn About Component Style Isolation",
+        "description": "Scaffolding an Angular Universal Application using the Angular CLI",
         "duration": "3:27",
         "seqNo": 6
       },
       {
         "id": "07",
-        "description": " Component Interaction - Extended Components Example",
+        "description": "Angular Universal Pre-Rendering with renderModuleFactory",
         "duration": "9:22",
         "seqNo": 7
       },
       {
         "id": "08",
-        "description": " Components Tutorial For Beginners - Components Exercise !",
+        "description": "Angular Universal Express Server - Step by Step Implementation",
         "duration": "1:26",
         "seqNo": 8
       },
       {
         "id": "09",
-        "description": " Components Tutorial For Beginners - Components Exercise Solution Inside",
+        "description": "Angular Universal Express Server - See it in Action",
         "duration": "2:08",
         "seqNo": 9
       },
       {
         "id": "10",
-        "description": " Directives - Inputs, Output Event Emitters and How To Export Template References",
+        "description": "Universal Express Server - Rendering Multiple Routes",
         "duration": "4:01",
         "seqNo": 10
       }

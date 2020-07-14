@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators';
 @Injectable()
 export class CoursesService {
 
-    static readonly API_URL = 'https://angular-universal-course-ebcc3.firebaseio.com';
+    static readonly API_URL = 'https://angular-universal-course-94047.firebaseio.com';
 
     constructor(private http: HttpClient) {
 
