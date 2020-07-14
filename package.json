@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "which-ng": "which ng",
     "start": "ng serve",
     "build:client-app:prod": "ng build --prod",
     "build:server-app:prod": "ng run angular-universal-course:server",
