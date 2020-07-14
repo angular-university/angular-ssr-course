@@ -1,11 +1,16 @@
 <mat-sidenav-container fullscreen>
 
-    <mat-sidenav #start>
+    <mat-sidenav #start (click)="start.close()">
+
         <mat-nav-list>
 
             <a mat-list-item routerLink="/">
                 <mat-icon>library_books</mat-icon>
                 <span>Courses</span>
+            </a>
+
+            <a mat-list-item routerLink="/about">
+                <span>About</span>
             </a>
 
             <a mat-list-item>

@@ -29,6 +29,7 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import { HttpClientModule} from '@angular/common/http';
+import {AboutComponent} from './about/about.component';
 
 
 
@@ -41,6 +42,7 @@ import { HttpClientModule} from '@angular/common/http';
         CourseComponent,
         CoursesCardListComponent,
         CourseDialogComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
