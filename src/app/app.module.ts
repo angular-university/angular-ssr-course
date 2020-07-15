@@ -27,7 +27,6 @@ import {CoursesService} from "./services/courses.service";
 import {CourseResolver} from "./services/course.resolver";
 import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import { HttpClientModule} from '@angular/common/http';
 import {AboutComponent} from './about/about.component';
 
@@ -36,44 +35,43 @@ import {AboutComponent} from './about/about.component';
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        CourseComponent,
-        CoursesCardListComponent,
-        CourseDialogComponent,
-        AboutComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatMenuModule,
-        MatButtonModule,
-        MatIconModule,
-        MatCardModule,
-        MatTabsModule,
-        MatSidenavModule,
-        MatListModule,
-        MatToolbarModule,
-        MatInputModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatProgressSpinnerModule,
-        MatDialogModule,
-        AppRoutingModule,
-        MatSelectModule,
-        MatDatepickerModule,
-        MatMomentDateModule,
-        ReactiveFormsModule,
-        HttpClientModule
-    ],
-    providers: [
-        CoursesService,
-        CourseResolver
-    ],
-    bootstrap: [AppComponent],
-    entryComponents: [CourseDialogComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    CourseComponent,
+    CoursesCardListComponent,
+    CourseDialogComponent,
+    AboutComponent
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    AppRoutingModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [
+    CoursesService,
+    CourseResolver
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [CourseDialogComponent]
 })
 export class AppModule {
 }
