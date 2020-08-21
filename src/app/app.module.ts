@@ -70,8 +70,7 @@ import {AboutComponent} from './about/about.component';
     CoursesService,
     CourseResolver
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [CourseDialogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
