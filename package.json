@@ -8,41 +8,41 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "serve:prerender": "http-server -c-1 dist/angular-universal-course/browser",
     "dev:ssr": "ng run angular-universal-course:serve-ssr",
     "serve:ssr": "node dist/angular-universal-course/server/main.js",
     "build:ssr": "ng build --prod && ng run angular-universal-course:server:production",
     "prerender": "ng run angular-universal-course:prerender"
   },
   "private": true,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   "dependencies": {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "@angular/animations": "~10.0.3",
     "@angular/cdk": "~10.0.0",
     "@angular/common": "~10.0.3",
@@ -66,10 +66,11 @@
     "@angular/compiler-cli": "~10.0.3",
     "@nguniversal/builders": "^10.0.1",
     "@types/express": "^4.17.0",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "http-server": "^0.12.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
