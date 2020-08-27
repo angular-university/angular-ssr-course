@@ -12,7 +12,7 @@
     "dev:ssr": "ng run angular-universal-course:serve-ssr",
     "serve:ssr": "node dist/angular-universal-course/server/main.js",
     "build:ssr": "ng build --prod && ng run angular-universal-course:server:production",
-    "prerender": "ng run angular-universal-course:prerender"
+    "prerender": "ng run angular-universal-course:prerender  --routesFile routes.txt"
   },
   "private": true,
   "dependencies": {
