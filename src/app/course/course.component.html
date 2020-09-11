@@ -10,7 +10,8 @@
 
     </div>
 
-    <mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+    <mat-table class="lessons-table mat-elevation-z8"
+               [dataSource]="dataSource" *appShellNoRender>
 
         <ng-container matColumnDef="seqNo">
 
