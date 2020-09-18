@@ -49,6 +49,7 @@ import {AppShellNoRenderDirective} from "./directives/app-shell-norender.directi
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserTransferStateModule,
     BrowserAnimationsModule,
     MatMenuModule,
     MatButtonModule,

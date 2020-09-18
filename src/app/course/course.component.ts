@@ -18,7 +18,6 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class CourseComponent implements OnInit {
 
-
     course:Course;
 
     dataSource: MatTableDataSource<Lesson>;
@@ -30,11 +29,7 @@ export class CourseComponent implements OnInit {
         private route: ActivatedRoute,
         private coursesService: CoursesService,
         private title: Title,
-        private meta: Meta) {
-
-    }
-
-
+        private meta: Meta) {}
 
     ngOnInit() {
 
