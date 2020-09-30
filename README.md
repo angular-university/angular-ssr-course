@@ -37,22 +37,21 @@ NPM 5 or above has the big advantage that if you use it you will be installing t
 
 This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.
 
-# To Run the Development Backend Server
-
-In order to be able to provide realistic examples, we will need in our playground a small REST API backend server. We can start the sample application backend with the following command:
-
-    npm run server
-
-This is a small Node REST API server.
-
 # To run the Development UI Server
 
 To run the frontend part of our code, we will use the Angular CLI:
 
     npm start 
 
-The application is visible at port 4200: [http://localhost:4200](http://localhost:4200)
+The application is available at port 4200: [http://localhost:4200](http://localhost:4200)
 
+# To run the Angular Universal Live Development Server
+
+To run the application in development mode but still have it server side rendered:
+
+    npm run dev:ssr 
+
+The live universal application is available at port 4200: [http://localhost:4200](http://localhost:4200)
 
 
 # Important 
