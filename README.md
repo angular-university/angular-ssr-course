@@ -3,7 +3,7 @@
 
 This repository contains the code of the course [Angular Universal In Depth](https://angular-university.io/course/angular-universal-course).
 
-This course repository is updated to Angular v10, and there is a  package-lock.json file available, for avoiding semantic versioning installation issues.
+This course repository is updated to Angular v11.
 
 ![Angular Universal In Depth](https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg)
 
