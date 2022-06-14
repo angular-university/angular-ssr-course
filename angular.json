@@ -167,7 +167,6 @@
       }
     }
   },
-  "defaultProject": "angular-universal-course",
   "cli": {
     "analytics": "fa1e8b50-e624-42fd-9564-a9c98d1ad337"
   }
