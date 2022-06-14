@@ -14,7 +14,7 @@ export class CourseDialogComponent implements OnInit {
     description:string;
 
     constructor(
-        private fb: FormBuilder,
+        private fb:FormBuilder,
         private dialogRef: MatDialogRef<CourseDialogComponent>,
         @Inject(MAT_DIALOG_DATA) {description,longDescription,
             category}:Course ) {
