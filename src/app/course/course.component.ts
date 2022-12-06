@@ -14,7 +14,7 @@ import {Meta, Title} from '@angular/platform-browser';
 @Component({
     selector: 'course',
     templateUrl: './course.component.html',
-    styleUrls: ['./course.component.css']
+    styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
 
