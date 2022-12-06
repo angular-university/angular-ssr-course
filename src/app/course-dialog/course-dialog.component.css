@@ -1,10 +1,14 @@
 
-
-.mat-form-field {
-    display: block;
+mat-form-field {
+  display: block;
+  width: 100%;
 }
 
 textarea {
-    height: 100px;
-    resize: vertical;
+  height: 100px;
+  resize: vertical;
+}
+
+button {
+  color: white;
 }
