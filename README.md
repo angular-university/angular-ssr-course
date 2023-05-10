@@ -3,7 +3,7 @@
 
 This repository contains the code of the course [Angular Universal In Depth](https://angular-university.io/course/angular-universal-course).
 
-This course repository is updated to Angular v15.
+This course repository is updated to Angular v16.
 
 ![Angular Universal In Depth](https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg)
 

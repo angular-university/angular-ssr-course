@@ -1,4 +1,4 @@
-import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -49,7 +49,7 @@ import {AppShellNoRenderDirective} from "./directives/app-shell-norender.directi
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    BrowserTransferStateModule,
+    //BrowserTransferStateModule,
     BrowserAnimationsModule,
     MatMenuModule,
     MatButtonModule,
