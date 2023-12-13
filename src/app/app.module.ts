@@ -35,42 +35,40 @@ import {AboutComponent} from './about/about.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CourseComponent,
-    CoursesCardListComponent,
-    CourseDialogComponent,
-    AboutComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatTabsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatDialogModule,
-    AppRoutingModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    CoursesService,
-    CourseResolver
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatTabsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        AppRoutingModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        HomeComponent,
+        CourseComponent,
+        CoursesCardListComponent,
+        CourseDialogComponent,
+        AboutComponent
+    ],
+    providers: [
+        CoursesService,
+        CourseResolver
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

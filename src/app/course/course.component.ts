@@ -2,19 +2,23 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {ActivatedRoute} from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {Course} from '../model/course';
 import {CoursesService} from '../services/courses.service';
 import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/operators';
 import {merge, fromEvent} from 'rxjs';
 import {Lesson} from '../model/lesson';
 import {Meta, Title} from '@angular/platform-browser';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 
 @Component({
     selector: 'course',
     templateUrl: './course.component.html',
-    styleUrls: ['./course.component.scss']
+    styleUrls: ['./course.component.scss'],
+    standalone: true,
+    imports: [NgIf, MatProgressSpinnerModule, MatTableModule]
 })
 export class CourseComponent implements OnInit {
 

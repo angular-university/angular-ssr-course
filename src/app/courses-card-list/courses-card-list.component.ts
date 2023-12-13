@@ -2,11 +2,17 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Course} from "../model/course";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import {CourseDialogComponent} from "../course-dialog/course-dialog.component";
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'courses-card-list',
     templateUrl: './courses-card-list.component.html',
-    styleUrls: ['./courses-card-list.component.scss']
+    styleUrls: ['./courses-card-list.component.scss'],
+    standalone: true,
+    imports: [NgFor, MatCardModule, MatButtonModule, RouterLink]
 })
 export class CoursesCardListComponent implements OnInit {
 
