@@ -38,6 +38,11 @@
             "namedChunks": true
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -73,6 +78,11 @@
             "buildTarget": "angular-universal-course:build"
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
             "production": {
               "buildTarget": "angular-universal-course:build:production"
             }
