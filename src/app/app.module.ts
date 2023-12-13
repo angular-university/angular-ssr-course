@@ -44,8 +44,7 @@ import {AboutComponent} from './about/about.component';
     AboutComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    //BrowserTransferStateModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
     MatButtonModule,
