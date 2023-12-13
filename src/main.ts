@@ -26,20 +26,13 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 import {bootstrapApplication, BrowserModule} from '@angular/platform-browser';
 import {CourseResolver} from './app/services/course.resolver';
 import {CoursesService} from './app/services/courses.service';
+import {appConfig} from "./app.config";
 
 if (environment.production) {
   enableProdMode();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  bootstrapApplication(AppComponent, {
-    providers: [
-      importProvidersFrom(BrowserModule, MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatTabsModule, MatSidenavModule, MatListModule, MatToolbarModule, MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule, MatDialogModule, AppRoutingModule, MatSelectModule, MatDatepickerModule, ReactiveFormsModule),
-      CoursesService,
-      CourseResolver,
-      provideAnimations(),
-      provideHttpClient(withInterceptorsFromDi())
-    ]
-  })
+
+  bootstrapApplication(AppComponent, appConfig)
     .catch(err => console.error(err));
-});
+
