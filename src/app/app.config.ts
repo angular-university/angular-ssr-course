@@ -14,12 +14,12 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatDialogModule} from "@angular/material/dialog";
-import {AppRoutingModule} from "./app/app-routing.module";
+import {AppRoutingModule} from "./app-routing.module";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {ReactiveFormsModule} from "@angular/forms";
-import {CoursesService} from "./app/services/courses.service";
-import {CourseResolver} from "./app/services/course.resolver";
+import {CoursesService} from "./services/courses.service";
+import {CourseResolver} from "./services/course.resolver";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 
