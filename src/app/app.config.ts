@@ -21,7 +21,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CoursesService} from "./services/courses.service";
 import {CourseResolver} from "./services/course.resolver";
 import {provideAnimations} from "@angular/platform-browser/animations";
-import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClient, withFetch, withInterceptorsFromDi} from "@angular/common/http";
 
 
 export const appConfig: ApplicationConfig = {
@@ -30,6 +30,6 @@ export const appConfig: ApplicationConfig = {
     CoursesService,
     CourseResolver,
     provideAnimations(),
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi(), withFetch())
   ]
 };
