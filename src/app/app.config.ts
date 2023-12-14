@@ -54,6 +54,7 @@ export const appConfig: ApplicationConfig = {
     CoursesService,
     CourseResolver,
     provideAnimations(),
-    provideHttpClient(withInterceptorsFromDi(), withFetch()), provideClientHydration()
+    provideHttpClient(withInterceptorsFromDi(), withFetch()),
+    provideClientHydration()
   ]
 };

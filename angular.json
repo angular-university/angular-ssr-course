@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-universal-course": {
+    "angular-ssr-course": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-universal-course/browser",
+            "outputPath": "dist/angular-ssr-course/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,7 +75,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "angular-universal-course:build"
+            "buildTarget": "angular-ssr-course:build"
           },
           "configurations": {
             "development": {
@@ -84,14 +84,14 @@
               "sourceMap": true
             },
             "production": {
-              "buildTarget": "angular-universal-course:build:production"
+              "buildTarget": "angular-ssr-course:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-universal-course:build"
+            "buildTarget": "angular-ssr-course:build"
           }
         },
         "test": {
@@ -116,18 +116,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-universal-course:serve"
+            "devServerTarget": "angular-ssr-course:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-universal-course:serve:production"
+              "devServerTarget": "angular-ssr-course:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/angular-universal-course/server",
+            "outputPath": "dist/angular-ssr-course/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "buildOptimizer": false,
@@ -163,12 +163,12 @@
           "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "angular-universal-course:build:development",
-              "serverTarget": "angular-universal-course:server:development"
+              "browserTarget": "angular-ssr-course:build:development",
+              "serverTarget": "angular-ssr-course:server:development"
             },
             "production": {
-              "browserTarget": "angular-universal-course:build:production",
-              "serverTarget": "angular-universal-course:server:production"
+              "browserTarget": "angular-ssr-course:build:production",
+              "serverTarget": "angular-ssr-course:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -182,12 +182,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-universal-course:build:production",
-              "serverTarget": "angular-universal-course:server:production"
+              "browserTarget": "angular-ssr-course:build:production",
+              "serverTarget": "angular-ssr-course:server:production"
             },
             "development": {
-              "browserTarget": "angular-universal-course:build:development",
-              "serverTarget": "angular-universal-course:server:development"
+              "browserTarget": "angular-ssr-course:build:development",
+              "serverTarget": "angular-ssr-course:server:development"
             }
           },
           "defaultConfiguration": "production"
