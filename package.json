@@ -1,5 +1,5 @@
 {
-  "name": "angular-universal-course",
+  "name": "angular-ssr-course",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,12 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "serve:prerender": "http-server -c-1 dist/angular-universal-course/browser",
-    "dev:ssr": "ng run angular-universal-course:serve-ssr",
-    "serve:ssr": "node dist/angular-universal-course/server/main.js",
-    "build:ssr": "ng build --configuration production && ng run angular-universal-course:server:production",
-    "prerender": "ng run angular-universal-course:prerender  --routes routes.txt"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

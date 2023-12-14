@@ -22,11 +22,11 @@ With the following command the angular-cli will be installed globally in your ma
 
 We can install the master branch using the following commands:
 
-    git clone https://github.com/angular-university/angular-universal-course.git
+    git clone https://github.com/angular-university/angular-ssr-course.git
     
 This repository is made of several separate npm modules, that are installable separately. For example, to run the au-input module, we can do the following:
     
-    cd angular-universal-course
+    cd angular-ssr-course
     npm install
 
 Its also possible to install the modules as usual using npm:
@@ -108,12 +108,6 @@ If you are looking for the [Angular Testing Course](https://angular-university.i
 If you are looking for the [Serverless Angular with Firebase Course](https://angular-university.io/course/firebase-course), the repo with the full code can be found here:
 
 ![Serverless Angular with Firebase Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/serverless-angular-small.png)
-
-# Angular Universal Course
-
-If you are looking for the [Angular Universal Course](https://angular-university.io/course/angular-universal-course), the repo with the full code can be found here:
-
-![Angular Universal Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-universal-small.png)
 
 # Angular PWA Course
 

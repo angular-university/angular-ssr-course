@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-universal-course": {
+    "angular-ssr": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-universal-course/browser",
+            "outputPath": "dist/angular-ssr/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,7 +75,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "angular-universal-course:build"
+            "buildTarget": "angular-ssr:build"
           },
           "configurations": {
             "development": {
@@ -84,14 +84,14 @@
               "sourceMap": true
             },
             "production": {
-              "buildTarget": "angular-universal-course:build:production"
+              "buildTarget": "angular-ssr:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-universal-course:build"
+            "buildTarget": "angular-ssr:build"
           }
         },
         "test": {
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-universal-course:serve"
+            "devServerTarget": "angular-ssr:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-universal-course:serve:production"
+              "devServerTarget": "angular-ssr:serve:production"
             }
           }
         }
