@@ -1,5 +1,5 @@
 import {ApplicationConfig, importProvidersFrom} from "@angular/core";
-import {BrowserModule} from "@angular/platform-browser";
+import {BrowserModule, provideClientHydration} from "@angular/platform-browser";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
@@ -22,14 +22,38 @@ import {CoursesService} from "./services/courses.service";
 import {CourseResolver} from "./services/course.resolver";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {provideHttpClient, withFetch, withInterceptorsFromDi} from "@angular/common/http";
+import {AppShellRenderDirective} from "./directives/app-shell-render.directive";
+import {AppShellNoRenderDirective} from "./directives/app-shell-norender.directive";
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(BrowserModule, MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatTabsModule, MatSidenavModule, MatListModule, MatToolbarModule, MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule, MatDialogModule, AppRoutingModule, MatSelectModule, MatDatepickerModule, ReactiveFormsModule),
+    importProvidersFrom(
+      BrowserModule,
+      MatMenuModule,
+      MatButtonModule,
+      MatIconModule,
+      MatCardModule,
+      MatTabsModule,
+      MatSidenavModule,
+      MatListModule,
+      MatToolbarModule,
+      MatInputModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      MatProgressSpinnerModule,
+      MatDialogModule,
+      AppRoutingModule,
+      MatSelectModule,
+      MatDatepickerModule,
+      ReactiveFormsModule,
+      AppShellRenderDirective,
+      AppShellNoRenderDirective
+    ),
     CoursesService,
     CourseResolver,
     provideAnimations(),
-    provideHttpClient(withInterceptorsFromDi(), withFetch())
+    provideHttpClient(withInterceptorsFromDi(), withFetch()), provideClientHydration()
   ]
 };
