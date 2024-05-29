@@ -21,7 +21,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CoursesService} from "./services/courses.service";
 import {CourseResolver} from "./services/course.resolver";
 import {provideAnimations} from "@angular/platform-browser/animations";
-import {provideHttpClient, withFetch, withInterceptorsFromDi} from "@angular/common/http";
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from "@angular/common/http";
 import {AppShellRenderDirective} from "./directives/app-shell-render.directive";
 import {AppShellNoRenderDirective} from "./directives/app-shell-norender.directive";
 

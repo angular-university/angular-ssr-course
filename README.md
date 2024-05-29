@@ -3,7 +3,7 @@
 
 This repository contains the code of the course [Angular SSR In Depth (formerly Angular Universal)](https://angular-university.io/course/angular-universal-course).
 
-This course repository is updated to Angular v17.
+This course repository is updated to Angular v18.
 
 ![Angular SSR In Depth (formerly Angular Universal)](https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg)
 

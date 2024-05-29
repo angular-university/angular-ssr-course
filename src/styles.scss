@@ -79,16 +79,16 @@ $pink: (
   )
 );
 
-$primary: mat.define-palette($mat-custom-green, 500);
+$primary: mat.m2-define-palette($mat-custom-green, 500);
 
-$accent: mat.define-palette($pink, A200, A100, A400);
+$accent: mat.m2-define-palette($pink, A200, A100, A400);
 
-$theme: mat.define-light-theme((
+$theme: mat.m2-define-light-theme((
   color: (
     primary: $primary,
     accent: $accent,
   ),
-  typography: mat.define-typography-config(),
+  typography: mat.m2-define-typography-config(),
   density: 0,
 ));
 

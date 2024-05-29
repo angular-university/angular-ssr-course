@@ -9,25 +9,22 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve:prerender": "http-server -c-1 dist/angular-ssr-course/browser",
-    "dev:ssr": "ng run angular-ssr-course:serve-ssr",
-    "serve:ssr": "node dist/angular-ssr-course/server/main.js",
-    "build:ssr": "ng build && ng run angular-ssr-course:server",
-    "prerender": "ng run angular-ssr-course:prerender"
+    "serve:ssr:angular-ssr-course": "node dist/angular-ssr-course/server/server.mjs"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.0.6",
-    "@angular/cdk": "^17.0.3",
-    "@angular/common": "^17.0.6",
-    "@angular/compiler": "^17.0.6",
-    "@angular/core": "^17.0.6",
-    "@angular/forms": "^17.0.6",
-    "@angular/material": "^17.0.3",
-    "@angular/platform-browser": "^17.0.6",
-    "@angular/platform-browser-dynamic": "^17.0.6",
-    "@angular/platform-server": "^17.0.6",
-    "@angular/router": "^17.0.6",
-    "@angular/ssr": "^17.0.7",
+    "@angular/animations": "^18.0.0",
+    "@angular/cdk": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/material": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/platform-server": "^18.0.0",
+    "@angular/router": "^18.0.0",
+    "@angular/ssr": "^18.0.1",
     "@types/express": "^4.17.8",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
@@ -35,9 +32,9 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.0.7",
-    "@angular/cli": "^17.0.7",
-    "@angular/compiler-cli": "^17.0.6",
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular/cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.0",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~3.8.0",
     "@types/jasminewd2": "~2.0.3",
@@ -51,6 +48,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ts-node": "~8.3.0",
-    "typescript": "~5.2.2"
+    "typescript": "~5.4.5"
   }
 }
