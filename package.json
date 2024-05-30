@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prerender": "http-server -c-1 dist/angular-ssr-course/browser",
+    "dev:ssr": "ng serve",
+    "build:ssr": "ng build --configuration=production",
+    "serve:ssr": "node dist/angular-ssr-course/server/server.mjs"
   },
   "private": true,
   "dependencies": {
