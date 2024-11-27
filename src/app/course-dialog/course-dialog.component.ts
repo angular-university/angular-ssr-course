@@ -12,7 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     selector: 'course-dialog',
     templateUrl: './course-dialog.component.html',
     styleUrls: ['./course-dialog.component.css'],
-    standalone: true,
     imports: [MatDialogTitle, MatDialogContent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatDialogActions, MatButtonModule]
 })
 export class CourseDialogComponent implements OnInit {

@@ -11,7 +11,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     selector: 'home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    standalone: true,
     imports: [MatTabsModule, CoursesCardListComponent, AsyncPipe]
 })
 export class HomeComponent implements OnInit {

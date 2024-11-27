@@ -11,7 +11,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: true,
     imports: [MatSidenavModule, MatListModule, RouterLink, MatIconModule, MatToolbarModule, MatButtonModule, RouterOutlet]
 })
 export class AppComponent {
