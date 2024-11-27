@@ -11,7 +11,6 @@ import { NgFor } from '@angular/common';
     selector: 'courses-card-list',
     templateUrl: './courses-card-list.component.html',
     styleUrls: ['./courses-card-list.component.scss'],
-    standalone: true,
     imports: [NgFor, MatCardModule, MatButtonModule, RouterLink]
 })
 export class CoursesCardListComponent implements OnInit {

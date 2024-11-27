@@ -5,7 +5,8 @@ import {
 import {isPlatformServer} from "@angular/common";
 
 @Directive({
-  selector: "[appShellNoRender]"
+    selector: "[appShellNoRender]",
+    standalone: false
 })
 export class AppShellNoRenderDirective implements OnInit {
 

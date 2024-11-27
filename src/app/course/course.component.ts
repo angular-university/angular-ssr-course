@@ -17,7 +17,6 @@ import { NgIf } from '@angular/common';
     selector: 'course',
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.scss'],
-    standalone: true,
     imports: [NgIf, MatProgressSpinnerModule, MatTableModule]
 })
 export class CourseComponent implements OnInit {
