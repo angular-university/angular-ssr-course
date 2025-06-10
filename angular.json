@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ssr": {
+    "angular-ssr-course": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": {
-              "base": "dist/angular-ssr"
+              "base": "dist/angular-ssr-course"
             },
             "index": "src/index.html",
             "polyfills": [
@@ -75,7 +75,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "angular-ssr:build"
+            "buildTarget": "angular-ssr-course:build"
           },
           "configurations": {
             "development": {
@@ -84,14 +84,14 @@
               "sourceMap": true
             },
             "production": {
-              "buildTarget": "angular-ssr:build:production"
+              "buildTarget": "angular-ssr-course:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-ssr:build"
+            "buildTarget": "angular-ssr-course:build"
           }
         },
         "test": {
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-ssr:serve"
+            "devServerTarget": "angular-ssr-course:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-ssr:serve:production"
+              "devServerTarget": "angular-ssr-course:serve:production"
             }
           }
         }
@@ -129,5 +129,31 @@
   },
   "cli": {
     "analytics": "fa1e8b50-e624-42fd-9564-a9c98d1ad337"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
   }
 }
