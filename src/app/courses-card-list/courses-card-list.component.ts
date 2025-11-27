@@ -5,13 +5,13 @@ import {CourseDialogComponent} from "../course-dialog/course-dialog.component";
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'courses-card-list',
     templateUrl: './courses-card-list.component.html',
     styleUrls: ['./courses-card-list.component.scss'],
-    imports: [NgFor, MatCardModule, MatButtonModule, RouterLink]
+    imports: [MatCardModule, MatButtonModule, RouterLink]
 })
 export class CoursesCardListComponent implements OnInit {
 
