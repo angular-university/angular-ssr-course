@@ -10,14 +10,14 @@ import {merge, fromEvent} from 'rxjs';
 import {Lesson} from '../model/lesson';
 import {Meta, Title} from '@angular/platform-browser';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { NgIf } from '@angular/common';
+
 
 
 @Component({
     selector: 'course',
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.scss'],
-    imports: [NgIf, MatProgressSpinnerModule, MatTableModule]
+    imports: [MatProgressSpinnerModule, MatTableModule]
 })
 export class CourseComponent implements OnInit {
 
