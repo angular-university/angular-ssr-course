@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Inject, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle, MatDialogContent, MatDialogActions } from "@angular/material/dialog";
 import {Course} from "../model/course";
 import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from "@angular/forms";
@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     selector: 'course-dialog',
     templateUrl: './course-dialog.component.html',
     styleUrls: ['./course-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatDialogTitle, MatDialogContent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatDialogActions, MatButtonModule]
 })
 export class CourseDialogComponent implements OnInit {
