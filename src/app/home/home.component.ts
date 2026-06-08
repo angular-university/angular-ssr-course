@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {Course} from "../model/course";
 import {Observable} from "rxjs";
 import {CoursesService} from "../services/courses.service";
@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     selector: 'home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatTabsModule, CoursesCardListComponent, AsyncPipe]
 })
 export class HomeComponent implements OnInit {

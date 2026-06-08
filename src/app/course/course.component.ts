@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     selector: 'course',
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatProgressSpinnerModule, MatTableModule]
 })
 export class CourseComponent implements OnInit {
